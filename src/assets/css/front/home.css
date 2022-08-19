@@ -1,0 +1,96 @@
+.home {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+.home>.navbar {
+  padding: 8px 18px !important;
+}
+.home>.navbar .nav-center {
+  font-weight: 600;
+}
+.home>.navbar-toggler:hover{
+  background-color: #000 !important
+}
+.home>.btn-warning:nth-child(n+4) {
+  width: 30% !important;
+}
+.home>.section img {
+  height: 100% !important;
+}
+.btn-warning:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.carousel__viewport,.carousel__track{
+  height: 100%;
+}
+.carousel__pagination {
+  position: absolute;
+  bottom: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.carousel__pagination-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.carousel__pagination-button--active {
+  background-color: #fff !important;
+}
+.carousel__prev, .carousel__next {
+  background-color: transparent;
+  margin: 0 1rem;
+}
+.content {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.description {
+  display: none;
+}
+.dropdown-toggle{
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0 0.6rem;
+  font-size: 1rem;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown > .show {
+  left: unset;
+  top: 110%;
+  right: 0;
+}
+.dropdown-menu {
+  padding: 1rem 4rem;
+  opacity: 90%;
+}
+@media screen and (min-width: 992px) {
+  .dropdown {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home>.section {
+    height: 100vh !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .content>.description {
+    display: block !important;
+  }
+}
+@media screen and (max-width: 576px){
+  .home>.section {
+    height: 50vh !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}

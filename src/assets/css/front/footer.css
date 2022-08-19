@@ -1,0 +1,11 @@
+.bi{
+  font-size: 1.2rem;
+}
+@media screen and (max-width:768px) {
+  .dnone{
+    display: none;
+  }
+  .icon-ul,.copyright{
+    margin: 0 auto!important;
+  }
+}

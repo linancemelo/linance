@@ -1,0 +1,61 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.cart.row{
+  min-height: 100vh;
+}
+.navbar {
+  padding: 8px 18px !important;
+}
+.col-lg-5 {
+  margin: 3rem 0;
+}
+.col-lg-7 > ul {
+  margin-top: 1.5rem;
+}
+.card {
+  border: 0 !important;
+  padding: 1.5rem;
+}
+.toinfo:hover {
+  color: #be6064 !important;
+}
+.toinfo img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0;
+  background-color: #f8f8f8;
+}
+.count {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+  padding: 0 !important;
+}
+.count input{
+  width: 1rem;
+}
+.bi-plus,
+.bi-dash {
+  align-self: center;
+}
+.bi-plus::before,
+.bi-dash::before {
+  vertical-align: -0.05rem;
+  padding-left: 0.05rem;
+}
+@media screen and (min-width: 1150px) {
+  .cart {
+    margin-top: 2.5rem;
+    padding: 0 100px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .col-12{
+    margin-top: 1rem;
+  }
+  .col-lg-7 h5 {
+    text-align: center !important;
+  }
+}
