@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" color="rgb(129,216,208)"></Loading>
+  <Loading :active="isLoading"></Loading>
   <div class="container-fluid">
     <table class="table mt-2 fs-6">
       <thead>
@@ -58,104 +58,103 @@
 </template>
 
 <script>
-import ProductModal from "@/components/ProductModal.vue";
-import DelModal from "@/components/DelModal.vue";
-import Pagination from "@/components/Paginations.vue";
+import ProductModal from '@/components/ProductModal.vue'
+import DelModal from '@/components/DelModal.vue'
+import Pagination from '@/components/Paginations.vue'
 
 export default {
   components: {
     ProductModal,
     DelModal,
-    Pagination,
+    Pagination
   },
-  data() {
+  data () {
     return {
       products: [],
       pagination: {},
       tempProduct: {},
       isAdd: false,
-      isLoading: false,
-    };
+      isLoading: false
+    }
   },
-  inject: ["emitter"],
+  inject: ['emitter'],
   methods: {
-    getProduct(page = 1) {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`;
-      this.isLoading = true;
+    getProduct (page = 1) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`
+      this.isLoading = true
       this.axios.get(api).then((res) => {
         if (res.data.success) {
-          this.isLoading = false;
-          this.products = res.data.products;
-          this.pagination = res.data.pagination;
-          console.log(res.data);
+          this.isLoading = false
+          this.products = res.data.products
+          this.pagination = res.data.pagination
         }
-      });
+      })
     },
-    openModal(isAdd, item) {
+    openModal (isAdd, item) {
       if (isAdd) {
-        this.tempProduct = {};
+        this.tempProduct = {}
       } else {
-        this.tempProduct = { ...item };
+        this.tempProduct = { ...item }
       }
-      this.isAdd = isAdd;
-      const ProductModal = this.$refs.productModal;
-      ProductModal.showModal();
+      this.isAdd = isAdd
+      const ProductModal = this.$refs.productModal
+      ProductModal.showModal()
     },
-    updatedChange(item) {
-      this.tempProduct = item;
-      let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product`;
-      let httpMethod = "post";
-      const ProductModal = this.$refs.productModal;
+    updatedChange (item) {
+      this.tempProduct = item
+      let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product`
+      let httpMethod = 'post'
+      const ProductModal = this.$refs.productModal
       // 如果不是新增（就是編輯）
       if (!this.isAdd) {
-        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
-        httpMethod = "put";
+        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`
+        httpMethod = 'put'
       }
       this.axios[httpMethod](api, { data: this.tempProduct }).then((res) => {
         // console.log(res, httpMethod);
-        ProductModal.hideModal();
+        ProductModal.hideModal()
         if (res.data.success) {
-          this.getProduct();
-          this.emitter.emit("push-message", {
-            style: "success",
-            title: "更新成功",
-          });
+          this.getProduct()
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '更新成功'
+          })
         } else {
-          //由於如果是點新增產品直接空欄位更新 會有id不存在問題 導致message是id不存在 而無法使用join
+          // 由於如果是點新增產品直接空欄位更新 會有id不存在問題 導致message是id不存在 而無法使用join
           if (item.id) {
-            this.emitter.emit("push-message", {
-              style: "danger",
-              title: "更新失敗",
-              content: res.data.message.join("、"),
-            });
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '更新失敗',
+              content: res.data.message.join('、')
+            })
           } else {
-            this.emitter.emit("push-message", {
-              style: "danger",
-              title: "更新失敗",
-              content: "有未填欄位，請重新新增！",
-            });
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '更新失敗',
+              content: '有未填欄位，請重新新增！'
+            })
           }
         }
-      });
+      })
     },
-    openDelModal(item) {
-      this.tempProduct = { ...item };
-      const DelModal = this.$refs.delModal;
-      DelModal.showModal();
+    openDelModal (item) {
+      this.tempProduct = { ...item }
+      const DelModal = this.$refs.delModal
+      DelModal.showModal()
     },
-    delProduct() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`;
+    delProduct () {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`
       this.axios.delete(api).then((res) => {
-        const DelModal = this.$refs.delModal;
-        DelModal.hideModal();
-        this.getProduct();
-      });
-    },
+        const DelModal = this.$refs.delModal
+        DelModal.hideModal()
+        this.getProduct()
+      })
+    }
   },
-  created() {
-    this.getProduct();
-  },
-};
+  created () {
+    this.getProduct()
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/back/products.css"></style>

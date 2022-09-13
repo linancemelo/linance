@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <!-- 
+    <!--
     <div class="col-md-6 border">
       <h1 class="">登入</h1>
       <form @submit.prevent="signIn" class="">
@@ -91,26 +91,25 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       user: {
-        username: "",
-        password: "",
-      },
-    };
+        username: '',
+        password: ''
+      }
+    }
   },
   methods: {
-    signIn() {
-      const api = `${process.env.VUE_APP_API}admin/signin`;
+    signIn () {
+      const api = `${process.env.VUE_APP_API}admin/signin`
       this.axios.post(api, this.user).then((res) => {
-        const { token, expired } = res.data;
-        console.log(token, expired);
-        document.cookie = `meloToken=${token}; expires=${new Date(expired)}`;
-        this.$router.push("/dashboard/products");
-      });
-    },
-  },
-};
+        const { token, expired } = res.data
+        document.cookie = `meloToken=${token}; expires=${new Date(expired)}`
+        this.$router.push('/dashboard/products')
+      })
+    }
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/back/login.css"></style>

@@ -1,7 +1,6 @@
 <template>
   <!-- http://192.168.0.48:8084/#/order/-N9CJHr7rRDDo2ryozIy -->
   <Loading :active="isLoading"></Loading>
-  <Navbar></Navbar>
   <div class="py-3 row justify-content-center bg-light">
     <form class="col-lg-6">
       <table class="table align-middle">
@@ -62,12 +61,12 @@
           v-if="order.is_paid"
           class="btn btn-dark px-3 rounded-pill"
         >
-          回首頁
+          &lt; 回首頁
         </router-link>
         <button
           @click.prevent="payOrder"
           class="btn btn-danger px-3 ms-1 rounded-pill"
-          :disabled="order.is_paid"
+          v-if="order.is_paid === false"
         >
           確認付款
         </button>
@@ -76,40 +75,38 @@
   </div>
 </template>
 <script>
-import Navbar from "./Navbar.vue";
 export default {
-  components: { Navbar },
-  data() {
+  data () {
     return {
       order: {
-        user: {},
+        user: {}
       },
-      orderId: "",
-      isLoading: false,
-    };
+      orderId: '',
+      isLoading: false
+    }
   },
   methods: {
-    getOrder() {
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`;
+    getOrder () {
+      this.isLoading = true
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`
       this.axios.get(api).then((res) => {
-        this.order = res.data.order;
-        this.isLoading = false;
+        this.order = res.data.order
+        this.isLoading = false
         // console.log(this.order);
-      });
+      })
     },
-    payOrder() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`;
+    payOrder () {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`
       this.axios.post(api).then((res) => {
-        this.getOrder();
-      });
-    },
+        this.getOrder()
+      })
+    }
   },
-  created() {
-    this.orderId = this.$route.params.id;
-    this.getOrder();
-  },
-};
+  created () {
+    this.orderId = this.$route.params.id
+    this.getOrder()
+  }
+}
 </script>
 
 <style></style>

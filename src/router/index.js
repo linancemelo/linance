@@ -6,9 +6,14 @@ import Coupons from '@/views/back/Coupons'
 import Orders from '@/views/back/Orders'
 
 import Home from '@/views/front/Home'
+import About from '@/views/front/About'
+import AboutUs from '@/views/front/AboutUs'
+import Team from '@/views/front/Team'
+import Contact from '@/views/front/Contact'
 import Store from '@/views/front/Store'
 import Product from '@/views/front/ProductBoard'
 import ProductInfo from '@/views/front/ProductInfo'
+import User from '@/views/front/User'
 import Cart from '@/views/front/Cart'
 import UserInfo from '@/views/front/UserInfo'
 import Order from '@/views/front/Order'
@@ -22,11 +27,33 @@ const routes = [
   {
     path: '/',
     component: Home,
-    name: 'Home'
+    name: 'Home',
+    meta: {
+      title: 'Linance'
+    }
+  },
+  {
+    path: '/about',
+    component: About,
+    redirect: '/about/aboutus',
+    children: [
+      {
+        path: 'aboutus',
+        component: AboutUs
+      },
+      {
+        path: 'team',
+        component: Team
+      },
+      {
+        path: 'contact',
+        component: Contact
+      }
+    ]
   },
   {
     path: '/store',
-    component: Store,
+    component: Store
   },
   {
     path: '/product',
@@ -34,24 +61,30 @@ const routes = [
     children: [
       {
         path: ':id',
-        component: ProductInfo,
+        component: ProductInfo
       }
     ]
   },
   {
-    path: '/cart',
-    component: Cart,
+    path: '/user',
+    component: User,
+    redirect: '/user/cart',
     children: [
       {
-        path:'userinfo',
-        component: UserInfo,
+        path: 'cart',
+        component: Cart
+      },
+      {
+        path: 'userinfo',
+        component: UserInfo
+      },
+      {
+        path: 'order/:id',
+        component: Order
       }
     ]
   },
-  {
-    path: '/order/:id',
-    component: Order
-  },
+
   // 後台
   {
     path: '/login',
@@ -82,4 +115,5 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
 export default router

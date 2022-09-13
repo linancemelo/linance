@@ -1,0 +1,45 @@
+.navbar {
+  padding: 8px 18px !important;
+}
+
+.step {
+  padding: 1.5rem 0 0;
+  margin-bottom: 0;
+  background-color: #f9faf8;
+}
+
+.step-item p {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 auto 0.5rem;
+  background-color: #e5e5e5;
+}
+.active-top {
+  color: #fff;
+  background-color: #415ae9 !important;
+}
+.active-bottom {
+  color: #415ae9 !important;
+}
+
+.step-item {
+  position: relative;
+}
+
+.step .step-item:nth-child(-n+2)::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 82%;
+  width: 120%;
+  height: 2px;
+  background-color: #e5e5e5;
+  z-index: 0;
+}
+
+@media screen and (max-width: 992px) {
+  .step {
+    padding-bottom: 2rem;
+  }
+}

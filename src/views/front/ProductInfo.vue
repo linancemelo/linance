@@ -59,12 +59,13 @@
             <i class="bi bi-plus"></i>
           </button>
           <button
-            class="btn ms-3 cart"
+            class="btn btn-sm ms-3 fs-9 add-btn"
             :disabled="loadingItem === id"
             @click.prevent="addToCart(id)"
           >
             加入購物車
           </button>
+          <router-link to="/user" class="btn btn-sm ms-3 fs-9 toCart-btn">前往購物車</router-link>
         </div>
         <!---->
         <div class="mt-4 fs-6">
@@ -109,7 +110,6 @@
         </div>
         <!---->
         <div class="mt-3 col-md-10 col-lg-9">
-          <hr />
           <h5 class="fs-6">產品描述</h5>
           <p>
             {{ product.description }}
@@ -124,64 +124,75 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
       product: {},
-      id: "",
+      id: '',
       num: 1,
       loadingItem: {},
       isLoading: false,
-      title: "",
-    };
+      title: '',
+      cartLength: 0
+    }
   },
-  inject: ["emitter"],
+  inject: ['emitter'],
   methods: {
-    getProductInfo() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`;
+    getProductInfo () {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`
       this.axios.get(api).then((res) => {
-        this.product = res.data.product;
-      });
+        this.product = res.data.product
+      })
     },
-    add() {
+    getCartLength () {
+      const api_ = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
+      this.axios.get(api_).then((res) => {
+        this.cartLength = res.data.data.carts.reduce((tQty, i) => {
+          return (tQty += i.qty)
+        }, 0)
+        this.emitter.emit('update-amount', this.cartLength)
+      })
+    },
+    add () {
       if (this.num < 10) {
-        this.num += 1;
+        this.num += 1
       }
     },
-    sub() {
+    sub () {
       if (this.num > 1) {
-        this.num -= 1;
+        this.num -= 1
       }
     },
-    addToCart(id) {
+    addToCart (id) {
       const cart = {
         data: {
           product_id: id,
-          qty: this.num,
-        },
-      };
-      this.loadingItem = id;
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.axios.post(api, cart).then((res) => {
-        this.loadingItem = {};
-        this.num = 1;
-        this.isLoading = false;
-        this.title = res.data.data.product.title;
-        if (res.data.success) {
-          this.emitter.emit("push-message", {
-            style: "success",
-            title: "更新成功",
-            content: `${this.title} 已加入購物車`,
-          });
+          qty: this.num
         }
-      });
-    },
+      }
+      this.loadingItem = id
+      this.isLoading = true
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
+      this.axios.post(api, cart).then((res) => {
+        this.loadingItem = {}
+        this.num = 1
+        this.isLoading = false
+        this.title = res.data.data.product.title
+        if (res.data.success) {
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '更新成功',
+            content: `${this.title} 已加入購物車`
+          })
+        }
+        this.getCartLength()
+      })
+    }
   },
-  created() {
-    this.id = this.$route.params.id;
-    this.getProductInfo();
-  },
-};
+  created () {
+    this.id = this.$route.params.id
+    this.getProductInfo()
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/front/productinfo.css"></style>

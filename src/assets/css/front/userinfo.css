@@ -1,8 +1,26 @@
-.row {
-  position: absolute;
-  top: 0;
-  left:50%;
-  transform: translateX(-50%);
-  padding: 2rem;
-  background-color: aqua;
+.form {
+  margin: 0 auto;
+  padding: 1rem 20rem;
+  background-color: #f9faf8;
+}
+
+@media screen and (max-width: 1150px) {
+  .form {
+    padding: 1rem 15rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .form {
+    padding: 1rem 10rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form {
+    padding: 1rem 5rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  .form {
+    padding: 1rem 1rem;
+  }
 }

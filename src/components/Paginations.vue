@@ -5,6 +5,7 @@
         <a
           @click.prevent="prev"
           class="page-link"
+          :class="{'disabled': tempPages.current_page===1}"
           href="#"
           aria-label="Previous"
         >
@@ -13,16 +14,22 @@
       </li>
       <li
         class="page-item"
-        v-for="page in pages.total_pages"
+        v-for="page in tempPages.total_pages"
         :key="page"
-        :class="{ active: page == pages.current_page }"
+        :class="{ active: page == pages.current_page}"
       >
         <a @click.prevent="updatedPage(page)" class="page-link" href="#">{{
           page
         }}</a>
       </li>
       <li class="page-item">
-        <a @click.prevent="next" class="page-link" href="#" aria-label="Next">
+        <a
+        @click.prevent="next"
+        class="page-link"
+        :class="{'disabled': tempPages.current_page===tempPages.total_pages}"
+        href="#"
+        aria-label="Next"
+        >
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
@@ -32,23 +39,35 @@
 
 <script>
 export default {
-  props: ["pages"],
-  methods: {
-    updatedPage(page) {
-      this.$emit("update-page", page);
-    },
-    next() {
-      if (this.pages.current_page == this.pages.total_pages) return;
-      this.pages.current_page++;
-      this.updatedPage(this.pages.current_page);
-    },
-    prev() {
-      if (this.pages.current_page == 1) return;
-      this.pages.current_page--;
-      this.updatedPage(this.pages.current_page);
-    },
+  props: {
+    pages: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
   },
-};
+  data () {
+    return {
+      tempPages: this.pages
+    }
+  },
+  methods: {
+    updatedPage (page) {
+      this.$emit('update-page', page)
+    },
+    next () {
+      if (this.tempPages.current_page === this.tempPages.total_pages) return
+      this.tempPages.current_page++
+      this.updatedPage(this.tempPages.current_page)
+    },
+    prev () {
+      if (this.tempPages.current_page === 1) return
+      this.tempPages.current_page--
+      this.updatedPage(this.tempPages.current_page)
+    }
+  }
+}
 </script>
 
 <style scoped src="../assets/css/pagination.css"></style>

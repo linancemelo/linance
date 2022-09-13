@@ -7,11 +7,11 @@
     ref="toast"
   >
     <div class="toast-header">
-      <span :class="`bg-${msg.style}`" class="p-2 me-2 d-inline-block"></span>
+      <i :class="`text-${msg.style}`" class="bi bi-chat-left-text-fill me-3 d-inline-block"></i>
       <strong class="me-auto">{{ msg.title }}</strong>
       <button
         type="button"
-        class="btn-close"
+        class="btn-close me-1"
         data-bs-dismiss="toast"
         aria-label="Close"
       ></button>
@@ -22,16 +22,19 @@
   </div>
 </template>
 <script>
-import Toast from "bootstrap/js/dist/toast";
+import Toast from 'bootstrap/js/dist/toast'
 export default {
-  name: "Toast",
-  props: ["msg"],
-  mounted() {
-    const toastEl = this.$refs.toast;
+  name: 'Toast',
+  props: ['msg'],
+  mounted () {
+    const toastEl = this.$refs.toast
     const toast = new Toast(toastEl, {
-      delay: 3000,
-    });
-    toast.show();
-  },
-};
+      delay: 3000
+    })
+    toast.show()
+  }
+}
 </script>
+
+<style scoped src="../assets/css/toastMessage.css">
+</style>

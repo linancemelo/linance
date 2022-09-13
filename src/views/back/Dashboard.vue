@@ -76,40 +76,40 @@
 </template>
 
 <script>
-import emitter from "@/methods/emitter";
-import ToastArea from "@/components/ToastArea.vue";
+import emitter from '@/methods/emitter'
+import ToastArea from '@/components/ToastArea.vue'
 
 export default {
   components: {
-    ToastArea,
+    ToastArea
   },
-  created() {
+  created () {
     const token = document.cookie.replace(
       /(?:(?:^|.*;\s*)meloToken\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
-    this.$http.defaults.headers.common.Authorization = token;
-    const api = `${process.env.VUE_APP_API}api/user/check`;
+      '$1'
+    )
+    this.$http.defaults.headers.common.Authorization = token
+    const api = `${process.env.VUE_APP_API}api/user/check`
     this.axios.post(api, this.user).then((res) => {
       if (!res.data.success) {
-        this.$router.push("/login");
+        this.$router.push('/login')
       }
-    });
+    })
   },
   methods: {
-    logOut() {
-      const api = `${process.env.VUE_APP_API}logout`;
+    logOut () {
+      const api = `${process.env.VUE_APP_API}logout`
       this.axios.post(api, this.user).then((res) => {
-        this.$router.push("/login");
-      });
-    },
+        this.$router.push('/login')
+      })
+    }
   },
-  provide() {
+  provide () {
     return {
-      emitter,
-    };
-  },
-};
+      emitter
+    }
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/back/dashboard.css"></style>

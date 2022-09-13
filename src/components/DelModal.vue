@@ -32,18 +32,18 @@
 </template>
 
 <script>
-import modalMixins from "@/mixins/modalMixins";
+import modalMixins from '@/mixins/modalMixins'
 export default {
   props: {
-    item: {},
+    item: {}
   },
-  data() {
+  data () {
     return {
-      modal: {},
-    };
+      modal: {}
+    }
   },
-  mixins: [modalMixins],
-};
+  mixins: [modalMixins]
+}
 </script>
 
 <style></style>

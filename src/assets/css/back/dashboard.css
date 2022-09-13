@@ -2,6 +2,7 @@
   padding: 0.5rem 1rem !important;
   background-color: #fff;
 }
+
 .btn {
   width: 3rem;
   height: 1.8rem;
@@ -13,20 +14,25 @@
   border-radius: 20px;
   border: 0
 }
-.router{
+
+.router {
   background-color: #f1f2f5;
 }
-.router-link-active{
+
+.router-link-active {
   background-color: #ca585f;
 }
-.sidebar{
+
+.sidebar {
   background-color: gray;
 }
+
 .sidebar ul li:hover {
   background-color: #ca585f;
   border-radius: 5px;
-  box-shadow: 0px 15px 30px -5px rgba(0,0,0,0.26)  ;
+  box-shadow: 0px 15px 30px -5px rgba(0, 0, 0, 0.26);
 }
+
 /* .sidebar ul li:hover a {
   color: #fff;
 } */

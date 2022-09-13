@@ -8,12 +8,12 @@
             <router-link to="/" class="nav-link pt-2">回首頁</router-link>
           </li>
           <li class="nav-item me-3">
-            <router-link to="/store" class="nav-link pt-2" href="#"
+            <router-link to="/store" class="nav-link pt-2"
               >所有產品</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/" class="nav-link pt-2" href="#"
+            <router-link to="/about" class="nav-link pt-2"
               >關於我們</router-link
             >
           </li>
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style scoped src="../../assets/css/front/footer.css"></style>

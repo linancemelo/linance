@@ -109,30 +109,30 @@
 </template>
 
 <script>
-import modalMixins from "@/mixins/modalMixins";
+import modalMixins from '@/mixins/modalMixins'
 
 export default {
   props: {
     coupon: {
       type: Object,
-      default() {
-        return {};
-      },
-    },
+      default () {
+        return {}
+      }
+    }
   },
   watch: {
-    coupon() {
-      this.tempCoupon = this.coupon;
-    },
+    coupon () {
+      this.tempCoupon = this.coupon
+    }
   },
-  data() {
+  data () {
     return {
       modal: {},
-      tempCoupon: {},
-    };
+      tempCoupon: {}
+    }
   },
 
-  mixins: [modalMixins],
+  mixins: [modalMixins]
 
   // methods: {
   //   uploadImg() {
@@ -148,7 +148,7 @@ export default {
   //     });
   //   },
   // },
-};
+}
 </script>
 
 <style></style>

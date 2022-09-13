@@ -1,5 +1,5 @@
 <template>
-  <div class="toast-container position-absolute pe-5 pt-5 top-0 end-0">
+  <div class="toast-container">
     <ToastMessage
       v-for="(msg, key) in messages"
       :key="key"
@@ -9,21 +9,25 @@
 </template>
 
 <script>
-import ToastMessage from "@/components/ToastMessage.vue";
+import ToastMessage from '@/components/ToastMessage.vue'
 
 export default {
   components: { ToastMessage },
-  data() {
+  data () {
     return {
-      messages: [],
-    };
+      messages: []
+    }
   },
-  inject: ["emitter"],
-  mounted() {
-    this.emitter.on("push-message", (message) => {
-      const { style = "success", title, content } = message;
-      this.messages.push({ style, title, content });
-    });
-  },
-};
+  inject: ['emitter'],
+  mounted () {
+    this.emitter.on('push-message', (message) => {
+      const { style = 'success', title, content } = message
+      this.messages.push({ style, title, content })
+    })
+  }
+}
 </script>
+
+<style scoped src="../assets/css/toastArea.css">
+
+</style>

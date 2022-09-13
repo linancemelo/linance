@@ -1,0 +1,71 @@
+.navbar {
+  padding: 8px 18px !important;
+}
+
+.card {
+  border-radius: 0;
+  border: 0;
+  padding: 0 5em;
+  margin: 2rem 0
+}
+
+.card img {
+  border-radius: 0;
+}
+
+.intro {
+  padding: 0 5em;
+  margin: 2rem 0
+}
+
+.sidebar {
+  padding: 0
+}
+
+.sidebar ul,
+.sidebar a {
+  padding: 0;
+  color: #000;
+}
+
+.sidebar a {
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.sidebar a:hover {
+  color: #be6064;
+  border-bottom: 1px solid #be6064;
+}
+
+.router-link-active {
+  color: #be6064 !important;
+  border-bottom: 1px solid #be6064;
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+    padding: 0;
+    margin: 1rem -0.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar ul li {
+    padding: 0 0.7rem
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  .card,
+  .intro {
+    padding: 0;
+    margin: 1rem -0.25rem;
+  }
+}

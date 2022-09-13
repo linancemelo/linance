@@ -3,22 +3,39 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-img{
+
+img {
   background-color: #f8f8f8
 }
-input{
+
+input {
   width: 1.5rem;
 }
-.title{
+
+.title {
   font-size: 2.5rem;
 }
-.price{
+
+.price {
   color: #be6064
 }
-.cart{
+
+.add-btn {
   background-color: #be6064;
   color: #fff;
 }
+
+.toCart-btn {
+  padding-top: 0.4rem;
+  background-color: #333;
+  color: #fff
+}
+
+.bi-plus::before,
+.bi-dash::before {
+  vertical-align: 0;
+}
+
 .count {
   width: 2rem !important;
   height: 2rem !important;
@@ -27,7 +44,8 @@ input{
   box-shadow: 1px 1px;
   align-self: center;
 }
-.form-check-input{
+
+.form-check-input {
   width: 1rem;
   height: 1rem;
 }

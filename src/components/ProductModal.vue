@@ -185,27 +185,27 @@
 </template>
 
 <script>
-import modalMixins from "@/mixins/modalMixins";
+import modalMixins from '@/mixins/modalMixins'
 
 export default {
   props: {
     product: {
       type: Object,
-      default() {
-        return {};
-      },
-    },
+      default () {
+        return {}
+      }
+    }
   },
   watch: {
-    product() {
-      this.tempProduct = this.product;
-    },
+    product () {
+      this.tempProduct = this.product
+    }
   },
-  data() {
+  data () {
     return {
       modal: {},
-      tempProduct: {},
-    };
+      tempProduct: {}
+    }
   },
   mixins: [modalMixins],
   // methods: {
@@ -220,20 +220,19 @@ export default {
   //   this.modal = new Modal(this.$refs.modal);
   // },
   methods: {
-    uploadImg() {
-      const uploadFile = this.$refs.imgInput.files[0];
-      const formData = new FormData();
-      formData.append("file-to-upload", uploadFile);
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
+    uploadImg () {
+      const uploadFile = this.$refs.imgInput.files[0]
+      const formData = new FormData()
+      formData.append('file-to-upload', uploadFile)
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`
       this.axios.post(api, formData).then((res) => {
-        console.log(res.data);
         if (res.data.success) {
-          this.tempProduct.imageUrl = res.data.imageUrl;
+          this.tempProduct.imageUrl = res.data.imageUrl
         }
-      });
-    },
-  },
-};
+      })
+    }
+  }
+}
 </script>
 
 <style></style>

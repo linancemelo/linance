@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" color="rgb(129,216,208)"></Loading>
+  <Loading :active="isLoading"></Loading>
   <div class="container-fluid">
     <table class="table mt-2">
       <thead>
@@ -48,49 +48,49 @@
 </template>
 
 <script>
-import DelModal from "@/components/DelModal.vue";
+import DelModal from '@/components/DelModal.vue'
 
 export default {
   components: {
-    DelModal,
+    DelModal
   },
-  data() {
+  data () {
     return {
       orders: [],
       isLoading: false,
-      tempOrder: {},
-    };
+      tempOrder: {}
+    }
   },
-  inject: ["emitter"],
+  inject: ['emitter'],
   methods: {
-    getOrders() {
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/orders`;
+    getOrders () {
+      this.isLoading = true
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/orders`
       this.axios.get(api).then((res) => {
-        this.orders = res.data.orders;
-        this.orders.shift();
-        this.isLoading = false;
+        this.orders = res.data.orders
+        this.orders.shift()
+        this.isLoading = false
         // console.log(res);
-      });
+      })
     },
-    openDelModal(order) {
-      this.tempOrder = { ...order };
-      const DelModal = this.$refs.delModal;
-      DelModal.showModal();
+    openDelModal (order) {
+      this.tempOrder = { ...order }
+      const DelModal = this.$refs.delModal
+      DelModal.showModal()
     },
-    delOrder() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${this.tempOrder.id}`;
+    delOrder () {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${this.tempOrder.id}`
       this.axios.delete(api).then((res) => {
-        const DelModal = this.$refs.delModal;
-        DelModal.hideModal();
-        this.getOrders();
-      });
-    },
+        const DelModal = this.$refs.delModal
+        DelModal.hideModal()
+        this.getOrders()
+      })
+    }
   },
-  created() {
-    this.getOrders();
-  },
-};
+  created () {
+    this.getOrders()
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/back/order.css"></style>

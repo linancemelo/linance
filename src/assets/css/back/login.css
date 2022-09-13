@@ -1,27 +1,17 @@
-/* img{
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-
-.login .row .l-pic{
-  padding: 0;
-}
-.ipt{
-  width: 100%;
-}
-*/
-.row{
+.row {
   box-shadow: 12px 12px 22px;
 }
-.dash{
+
+.dash {
   display: inline-block;
   width: 20%;
   border: 1px solid #ccc;
   margin: 0 0.5rem;
   vertical-align: middle;
 }
+
 @media screen and (min-width: 992px) {
-  .row{
+  .row {
     margin-top: 3rem
   }
 }

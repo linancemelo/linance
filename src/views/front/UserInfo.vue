@@ -1,5 +1,6 @@
 <template>
-  <div class="row justify-content-center">
+  <Loading :active="isLoading"></Loading>
+  <div class="form row justify-content-center">
     <Form class="col-sm-12" v-slot="{ errors }" @submit="createOrder">
       <div class="mb-2">
         <label for="email" class="form-label">Email</label>
@@ -17,7 +18,7 @@
       </div>
 
       <div class="mb-2">
-        <label for="name" class="form-label">收件人姓名</label>
+        <label for="name" class="form-label">姓名</label>
         <Field
           id="name"
           name="姓名"
@@ -32,7 +33,7 @@
       </div>
 
       <div class="mb-2">
-        <label for="tel" class="form-label">收件人電話</label>
+        <label for="tel" class="form-label">電話</label>
         <Field
           id="tel"
           name="電話"
@@ -47,7 +48,7 @@
       </div>
 
       <div class="mb-2">
-        <label for="address" class="form-label">收件人地址</label>
+        <label for="address" class="form-label">地址</label>
         <Field
           id="address"
           name="地址"
@@ -72,39 +73,49 @@
           v-model="form.message"
         ></textarea>
       </div>
-      <div class="text-center">
-        <button class="btn btn-danger rounded-pill px-5 mt-3">送出訂單</button>
+      <div class="d-flex justify-content-between">
+        <button @click.prevent="backToCart" class="btn rounded-pill px-3 mt-3">&lt; 回購物車</button>
+        <button class="btn rounded-pill px-3 mt-3">送出訂單 &gt;</button>
       </div>
     </Form>
   </div>
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       form: {
         user: {
-          name: "",
-          email: "",
-          tel: "",
-          address: "",
+          name: '',
+          email: '',
+          tel: '',
+          address: ''
         },
-        message: "",
+        message: ''
       },
-    };
+      isLoading: false
+    }
   },
   methods: {
-    createOrder() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
-      const order = this.form;
+    createOrder () {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`
+      const order = this.form
       this.axios.post(api, { data: order }).then((res) => {
-        console.log(res);
-        const orderId = res.data.orderId;
-        this.$router.push(`/order/${orderId}`);
-      });
+        const orderId = res.data.orderId
+        this.$router.push(`order/${orderId}`)
+      })
     },
+    backToCart () {
+      this.$router.push('/user')
+    }
   },
-};
+  created () {
+    this.isLoading = true
+    setTimeout(() => {
+      this.isLoading = false
+    }, 300)
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/front/userinfo.css"></style>

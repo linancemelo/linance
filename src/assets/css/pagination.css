@@ -1,8 +1,9 @@
-.page-link{
+.page-link {
   border: 0;
   color: #000
 }
-.active > .page-link{
+
+.active>.page-link {
   background-color: #ca585f;
   color: #fff
 }

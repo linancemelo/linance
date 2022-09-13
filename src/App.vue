@@ -3,18 +3,18 @@
   <ToastArea></ToastArea>
 </template>
 <script>
-import emitter from "@/methods/emitter";
-import ToastArea from "@/components/ToastArea.vue";
+import emitter from '@/methods/emitter'
+import ToastArea from '@/components/ToastArea.vue'
 export default {
   components: {
-    ToastArea,
+    ToastArea
   },
-  provide() {
+  provide () {
     return {
-      emitter,
-    };
-  },
-};
+      emitter
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -29,6 +29,10 @@ export default {
 }
 li {
   list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #000;
 }
 .navbar {
   padding: 0.2rem !important;
@@ -48,5 +52,8 @@ li {
 }
 .fs-8 {
   font-size: 0.8rem;
+}
+.fs-9{
+  font-size: 0.7rem;
 }
 </style>

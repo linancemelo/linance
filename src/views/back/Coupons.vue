@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" color="rgb(129,216,208)"></Loading>
+  <Loading :active="isLoading"></Loading>
   <div class="container-fluid">
     <table class="table mt-2">
       <thead>
@@ -55,98 +55,98 @@
 </template>
 
 <script>
-import CouponModal from "@/components/CouponModal.vue";
-import DelModal from "@/components/DelModal.vue";
+import CouponModal from '@/components/CouponModal.vue'
+import DelModal from '@/components/DelModal.vue'
 
 export default {
   components: { CouponModal, DelModal },
-  data() {
+  data () {
     return {
       coupons: [],
       pagination: {},
       tempCoupon: {},
       isAdd: false,
-      isLoading: false,
-    };
+      isLoading: false
+    }
   },
-  inject: ["emitter"],
+  inject: ['emitter'],
   methods: {
-    getCoupons() {
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupons`;
+    getCoupons () {
+      this.isLoading = true
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupons`
       this.axios.get(api).then((res) => {
         if (res.data.success) {
-          this.coupons = res.data.coupons;
-          this.pagination = res.data.pagination;
+          this.coupons = res.data.coupons
+          this.pagination = res.data.pagination
         }
-        this.isLoading = false;
-      });
+        this.isLoading = false
+      })
     },
-    openCouponModal(isAdd, item) {
+    openCouponModal (isAdd, item) {
       if (isAdd) {
-        this.tempCoupon = {};
+        this.tempCoupon = {}
       } else {
-        this.tempCoupon = { ...item };
+        this.tempCoupon = { ...item }
         // this.tempCoupon.due_date = new Date(this.tempCoupon.due_date * 1000).toLocaleString()
       }
-      this.isAdd = isAdd;
-      const couponModal = this.$refs.couponModal;
-      couponModal.showModal();
+      this.isAdd = isAdd
+      const couponModal = this.$refs.couponModal
+      couponModal.showModal()
     },
-    updatedChangeCoupon(item) {
-      this.tempCoupon = item;
-      const unixDate = Math.floor(new Date(item.due_date).getTime() / 1000);
-      item.due_date = unixDate;
-      const couponModal = this.$refs.couponModal;
-      let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon`;
-      let httpMethod = "post";
+    updatedChangeCoupon (item) {
+      this.tempCoupon = item
+      const unixDate = Math.floor(new Date(item.due_date).getTime() / 1000)
+      item.due_date = unixDate
+      const couponModal = this.$refs.couponModal
+      let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon`
+      let httpMethod = 'post'
       if (!this.isAdd) {
-        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${item.id}`;
-        httpMethod = "put";
+        api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${item.id}`
+        httpMethod = 'put'
       }
-      couponModal.hideModal();
+      couponModal.hideModal()
       this.axios[httpMethod](api, { data: this.tempCoupon }).then((res) => {
         if (res.data.success) {
-          this.getCoupons();
-          this.emitter.emit("push-message", {
-            style: "success",
-            title: "更新成功",
-          });
+          this.getCoupons()
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '更新成功'
+          })
         } else {
           if (item.id) {
-            this.emitter.emit("push-message", {
-              style: "danger",
-              title: "更新失敗",
-              content: res.data.message.join("、"),
-            });
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '更新失敗',
+              content: res.data.message.join('、')
+            })
           } else {
-            this.emitter.emit("push-message", {
-              style: "danger",
-              title: "更新失敗",
-              content: "有未填欄位，請重新新增！",
-            });
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '更新失敗',
+              content: '有未填欄位，請重新新增！'
+            })
           }
         }
-      });
+      })
     },
-    openDelModal(item) {
-      this.tempCoupon = { ...item };
-      const DelModal = this.$refs.delModal;
-      DelModal.showModal();
+    openDelModal (item) {
+      this.tempCoupon = { ...item }
+      const DelModal = this.$refs.delModal
+      DelModal.showModal()
     },
-    delCoupon() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${this.tempCoupon.id}`;
+    delCoupon () {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${this.tempCoupon.id}`
       this.axios.delete(api).then((res) => {
-        const DelModal = this.$refs.delModal;
-        DelModal.hideModal();
-        this.getCoupons();
-      });
-    },
+        const DelModal = this.$refs.delModal
+        DelModal.hideModal()
+        this.getCoupons()
+      })
+    }
   },
-  created() {
-    this.getCoupons();
-  },
-};
+  created () {
+    this.getCoupons()
+  }
+}
 </script>
 
 <style scoped src="../../assets/css/back/coupon.css"></style>
