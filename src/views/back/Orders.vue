@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import DelModal from '@/components/DelModal.vue'
+import DelModal from '@/components/back/DelModal.vue'
 
 export default {
   components: {
@@ -70,7 +70,6 @@ export default {
         this.orders = res.data.orders
         this.orders.shift()
         this.isLoading = false
-        // console.log(res);
       })
     },
     openDelModal (order) {

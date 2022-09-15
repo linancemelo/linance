@@ -150,14 +150,12 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`
       this.axios.get(api).then((res) => {
         this.cart = res.data.data.carts
-        // console.log(res.data);
         this.total_price = res.data.data.total
         this.final_total_price = Math.round(res.data.data.final_total)
         this.total_qty = this.cart.reduce((tQty, i) => {
           return (tQty += i.qty)
         }, 0)
         this.discount = Math.round(this.final_total_price - this.total_price)
-        // console.log(this.total_qty);
         this.isLoading = false
         this.emitter.emit('update-amount', this.total_qty)
       })

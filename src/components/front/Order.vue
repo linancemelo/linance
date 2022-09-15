@@ -92,7 +92,6 @@ export default {
       this.axios.get(api).then((res) => {
         this.order = res.data.order
         this.isLoading = false
-        // console.log(this.order);
       })
     },
     payOrder () {

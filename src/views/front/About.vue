@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import Navbar from './Navbar.vue'
-import Footer from './Footer.vue'
+import Navbar from '../../components/front/Navbar.vue'
+import Footer from '../../components/front/Footer.vue'
 
 export default {
   components: { Navbar, Footer },

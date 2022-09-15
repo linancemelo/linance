@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import Navbar from './Navbar.vue'
-import Caution from './Caution.vue'
-import Footer from './Footer.vue'
-import ProductInfo from './ProductInfo.vue'
+import Navbar from '../../components/front/Navbar.vue'
+import Caution from '../../components/front/Caution.vue'
+import Footer from '../../components/front/Footer.vue'
+import ProductInfo from '../../components/front/ProductInfo.vue'
 import emitter from '@/methods/emitter'
 
 export default {

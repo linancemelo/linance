@@ -47,45 +47,6 @@
         </div>
       </div>
     </div>
-    <!--
-    <div class="col-md-6 border">
-      <h1 class="">登入</h1>
-      <form @submit.prevent="signIn" class="">
-        <div class="">
-          <label for="inputEmail" class="">帳號</label>
-          <input
-            type="email"
-            id="inputEmail"
-            class="form-control rounded-pill"
-            placeholder="Email address"
-            required
-            v-model="user.username"
-          />
-        </div>
-        <div class="">
-          <label for="inputPassword" class="">密碼</label>
-          <input
-            type="password"
-            id="inputPassword"
-            class="form-control rounded-pill"
-            placeholder="Password"
-            required
-            v-model="user.password"
-          />
-        </div>
-        <div class="">
-          <button class="btn btn-dark btn-md" type="submit">登入</button>
-        </div>
-      </form>
-      <div class="">
-        <span class="dash"></span>
-        <span class="text-secondary">或</span>
-        <span class="dash"></span>
-      </div>
-      <div class="">
-        <a class="link-secondary">忘記密碼？</a>
-      </div>
-    </div> -->
   </div>
 </template>
 

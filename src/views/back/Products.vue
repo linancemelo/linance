@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import ProductModal from '@/components/ProductModal.vue'
-import DelModal from '@/components/DelModal.vue'
-import Pagination from '@/components/Paginations.vue'
+import ProductModal from '@/components/back/ProductModal.vue'
+import DelModal from '@/components/back/DelModal.vue'
+import Pagination from '@/components/common/Paginations.vue'
 
 export default {
   components: {
@@ -111,7 +111,6 @@ export default {
         httpMethod = 'put'
       }
       this.axios[httpMethod](api, { data: this.tempProduct }).then((res) => {
-        // console.log(res, httpMethod);
         ProductModal.hideModal()
         if (res.data.success) {
           this.getProduct()

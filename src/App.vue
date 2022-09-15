@@ -4,7 +4,7 @@
 </template>
 <script>
 import emitter from '@/methods/emitter'
-import ToastArea from '@/components/ToastArea.vue'
+import ToastArea from '@/components/common/ToastArea.vue'
 export default {
   components: {
     ToastArea

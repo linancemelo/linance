@@ -24,7 +24,6 @@ export default {
       const api = 'https://random-data-api.com/api/users/random_user?size=8'
       this.axios.get(api).then((res) => {
         this.userList = res.data
-        console.log(this.userList)
       })
     }
   },

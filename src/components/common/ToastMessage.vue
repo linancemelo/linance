@@ -36,5 +36,5 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/css/toastMessage.css">
+<style scoped src="../../assets/css/toastMessage.css">
 </style>

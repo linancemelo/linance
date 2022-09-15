@@ -48,7 +48,7 @@
   <Pagination :pages="pagination" @update-page="getProductList"></Pagination>
 </template>
 <script>
-import Pagination from '@/components/Paginations.vue'
+import Pagination from '@/components/common/Paginations.vue'
 export default {
   components: {
     Pagination
@@ -130,10 +130,10 @@ export default {
       if (favoriteIndex === -1) {
         // 如果沒資料就寫入
         this.favorList.push(product)
-        console.log('已成功加入收藏列表')
+        // console.log('已成功加入收藏列表')
       } else {
         this.favorList.splice(favoriteIndex, 1)
-        console.log('商品已從收藏列表移除')
+        // console.log('商品已從收藏列表移除')
       }
       // 儲存收藏列表進去
       localStorage.setItem('favorite', JSON.stringify(this.favorList))

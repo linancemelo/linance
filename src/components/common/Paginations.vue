@@ -70,4 +70,4 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/css/pagination.css"></style>
+<style scoped src="../../assets/css/pagination.css"></style>

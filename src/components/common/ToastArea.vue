@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ToastMessage from '@/components/ToastMessage.vue'
+import ToastMessage from '@/components/common/ToastMessage.vue'
 
 export default {
   components: { ToastMessage },
@@ -28,6 +28,6 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/css/toastArea.css">
+<style scoped src="../../assets/css/toastArea.css">
 
 </style>

@@ -134,7 +134,7 @@
 <script>
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import Footer from '@/views/front/Footer.vue'
+import Footer from '@/components/front/Footer.vue'
 
 export default {
   components: {

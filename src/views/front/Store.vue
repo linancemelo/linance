@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import StoreMainPic from '@/views/front/StoreMainPic.vue'
-import ProductList from '@/views/front/ProductList.vue'
-import Navbar from './Navbar.vue'
-import Footer from '@/views/front/Footer.vue'
+import StoreMainPic from '@/components/front/StoreMainPic.vue'
+import ProductList from '@/components/front/ProductList.vue'
+import Navbar from '../../components/front/Navbar.vue'
+import Footer from '@/components/front/Footer.vue'
 export default {
   components: {
     StoreMainPic,
@@ -27,7 +27,6 @@ export default {
       const navbarHeight = this.$refs.navbar.$el.clientHeight
       const mainPicHeight = this.$refs.mainPic.$el.nextElementSibling.clientHeight
       this.height = navbarHeight + mainPicHeight
-      console.log(this.height)
     }
   },
   mounted () {

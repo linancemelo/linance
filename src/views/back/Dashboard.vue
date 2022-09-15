@@ -48,21 +48,6 @@
                 ><i class="bi bi-bookmarks me-2"></i>優惠券</router-link
               >
             </li>
-            <!-- <li class="mb-4 nav-item mx-auto">
-              <a class="nav-link text-white">
-                <i class="bi bi-bar-chart me-2"></i>數據透視</a
-              >
-            </li>
-            <li class="mb-4 nav-item mx-auto">
-              <a href="" class="nav-link text-white"
-                ><i class="bi bi-chat-dots me-2"></i>客戶回饋</a
-              >
-            </li>
-            <li class="mb-4 nav-item mx-auto">
-              <a href="" class="nav-link text-white"
-                ><i class="bi bi-gear me-2"></i>個人設定</a
-              >
-            </li> -->
           </ul>
         </div>
         <!-- Router for product list...etc-->
@@ -77,7 +62,7 @@
 
 <script>
 import emitter from '@/methods/emitter'
-import ToastArea from '@/components/ToastArea.vue'
+import ToastArea from '@/components/common/ToastArea.vue'
 
 export default {
   components: {

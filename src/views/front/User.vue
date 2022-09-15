@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import Footer from '@/views/front/Footer.vue'
-import Navbar from '@/views/front/Navbar.vue'
+import Footer from '@/components/front/Footer.vue'
+import Navbar from '@/components/front/Navbar.vue'
 import emitter from '@/methods/emitter'
 
 export default {
