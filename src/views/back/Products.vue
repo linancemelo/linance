@@ -79,7 +79,7 @@ export default {
   },
   inject: ['emitter'],
   methods: {
-    getProduct (page = 1) {
+    getProduct (page = 3) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`
       this.isLoading = true
       this.axios.get(api).then((res) => {

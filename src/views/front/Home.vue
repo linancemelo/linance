@@ -1,93 +1,50 @@
 <template>
   <div class="home">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <router-link class="col-3 fs-5" to="/"
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <router-link class="col-3 fs-5" to="/"
         >𝐿𝒾𝓃𝒶𝓃𝒸𝑒</router-link>
-      <li class="nav-item dropdown">
+
         <button
-      class="btn navbar-toggler fo-50"
-      style="
-        font-size: 0.7rem;
-        background-color: rgba(255, 255, 255, 0.3);
-        padding: 0.3rem 0.6rem;
-        font-size: 1rem;
-      "
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      選單
-    </button>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li class="dropdown-item">
-            <a class="nav-link" href="#">Model S</a>
-          </li>
-          <li class="dropdown-item">
-            <a class="nav-link" href="#">Model 3</a>
-          </li>
-          <li class="dropdown-item">
-            <a class="nav-link" href="#">Model X</a>
-          </li>
-          <li class="dropdown-item">
-            <a class="nav-link" href="#">Model Y</a>
-          </li>
-          <li class="dropdown-item">
-            <a class="nav-link" href="#">Cybertruck</a>
-          </li>
-          <li><hr class="dropdown-divider" /></li>
-          <li class="dropdown-item">
-            <router-link to="/store" class="nav-link">線上商店</router-link>
-          </li>
-          <li class="dropdown-item">
-            <router-link to="/login" class="nav-link">帳戶</router-link>
-          </li>
-          <li class="dropdown-item">
-            <router-link to="/about" class="nav-link">關於我們</router-link>
-          </li>
-        </ul>
-      </li>
-      <div
-        class="collapse navbar-collapse col-6 fs-7"
-        id="navbarSupportedContent"
-      >
-        <ul class="nav-center navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Model S</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Model 3</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Model X</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Model Y</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cybertruck</a>
-          </li>
-        </ul>
-      </div>
-      <div
-        class="collapse navbar-collapse col-3"
-        id="navbarSupportedContent"
-        style="font-size: 16px"
-      >
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link to="/store" class="nav-link">線上商店</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/login" class="nav-link">帳戶</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/about" class="nav-link">關於我們</router-link>
-          </li>
-        </ul>
+        class="btn navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+        <div
+          class="collapse navbar-collapse col-6 fs-7 bb"
+          id="navbarSupportedContent"
+        >
+          <ul class="nav-center navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Model S</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Model 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Model X</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Model Y</a>
+            </li>
+            <li class="nav-item fs-8 aa">
+              <router-link to="/store" class="nav-link">商店</router-link>
+            </li>
+            <li class="nav-item fs-8">
+              <router-link to="/login" class="nav-link">帳戶</router-link>
+            </li>
+            <li class="nav-item fs-8">
+              <router-link to="/about" class="nav-link">關於我們</router-link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <!-- 輪播圖 -->

@@ -25,7 +25,7 @@
             </a>
           </li>
           <li class="nav-item mx-2">
-            <a href="https://www.instagram.com/llo6iang/" class="nav-link pt-1">
+            <a href="https://www.instagram.com/" class="nav-link pt-1">
               <i class="bi bi-instagram"></i>
             </a>
           </li>

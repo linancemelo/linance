@@ -9,13 +9,14 @@ ul {
   border-radius: 0;
 }
 
-ul button {
+.category {
   border-radius: 0 !important;
-  border-radius: 0.5rem !important;
-  background-color: whitesmoke;
+  border-radius: 0.2rem !important;
+  color: #f4f4f4;
+  background-color: #393c41;
 }
 
-ul button:hover {
+.category:hover {
   background-color: #be6064;
   color: #fff;
 }
@@ -29,15 +30,17 @@ h5 {
   font-size: 1rem;
 }
 
+.bi-suit-heart:hover,
 .bi-arrow-right:hover {
   color: #be6064;
-}
-
-.product img {
-  background-color: #d8d8d8;
 }
 
 .product img:hover {
   transform: scale(1.05);
   transition: 1.5s;
+}
+
+.product .btn-sm {
+  --bs-btn-padding-x: 0.2rem;
+  --bs-btn-padding-y: 0rem
 }

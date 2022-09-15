@@ -41,7 +41,6 @@ export default {
   watch: {
     $route (to, from) {
       this.path = this.$route.path.split('/')[2]
-      console.log(this.path)
     }
   },
   created () {

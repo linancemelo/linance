@@ -1,12 +1,12 @@
 <template>
   <Loading :active="isLoading"></Loading>
   <div class="mt-4">
-    <ul class="list-group list-group-horizontal w-100 my-2 text-center">
+    <ul class="list-group list-group-horizontal w-100 my-2 px-1 text-center">
       <button
         v-for="(category, index) in category"
         :key="index"
         type="button"
-        class="list-group-item list-group-item-action border-0 mx-1 p-1"
+        class="category list-group-item list-group-item-action border-0 mx-1 p-1"
         @click.prevent="getProductList(1, category)"
         >
         {{ category }}
@@ -30,9 +30,14 @@
         /></a>
         <div class="d-flex justify-content-between">
           <h5 class="card-title mt-1">{{ item.title }}</h5>
-          <a href="#" class="card-link text-dark"
-            ><i class="bi bi-arrow-right"></i
-          ></a>
+          <div>
+            <button class="btn btn-sm border-0" @click.prevent="addToFavorite(item)">
+              <i class="bi bi-suit-heart"></i>
+            </button>
+            <button class="btn btn-sm border-0"
+              ><i class="bi bi-arrow-right"></i
+            ></button>
+          </div>
         </div>
         <span class="card-link"
           >NTD <span>{{ $filters.currency(item.price) }}</span>
@@ -65,7 +70,17 @@ export default {
         current_page: 1,
         pageSize: 12
       },
-      currentPageData: []
+      currentPageData: [],
+      favorList: JSON.parse(localStorage.getItem('favorite')) || []
+    }
+  },
+  watch: {
+    'pagination.current_page': function () {
+      window.scrollTo({
+        top: this.height,
+        left: 0,
+        behavior: 'smooth'
+      })
     }
   },
   methods: {
@@ -102,18 +117,28 @@ export default {
         this.pagination.total_pages === 0 ? 1 : this.pagination.total_pages
       const start = (this.pagination.current_page - 1) * this.pagination.pageSize
       const end = this.pagination.current_page * this.pagination.pageSize
-      window.scrollTo({
-        top: this.height,
-        left: 0,
-        behavior: 'smooth'
-      })
       setTimeout(() => {
         this.currentPageData = this.selectedProducts.slice(start, end)
       }, 300)
-      console.log(this.pagination)
     },
     toInfo (id) {
       this.$router.push(`/product/${id}`)
+    },
+    addToFavorite (product) {
+      // console.log(favoriteIndex) true = 0 false = -1
+      const favoriteIndex = this.favorList.findIndex((item) => item.id === product.id)
+      if (favoriteIndex === -1) {
+        // 如果沒資料就寫入
+        this.favorList.push(product)
+        console.log('已成功加入收藏列表')
+      } else {
+        this.favorList.splice(favoriteIndex, 1)
+        console.log('商品已從收藏列表移除')
+      }
+      // 儲存收藏列表進去
+      localStorage.setItem('favorite', JSON.stringify(this.favorList))
+      // 重新更新收藏列表資料
+      this.favorList = JSON.parse(localStorage.getItem('favorite'))
     }
   },
   created () {

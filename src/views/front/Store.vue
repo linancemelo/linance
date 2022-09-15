@@ -1,7 +1,7 @@
 <template>
   <Navbar ref="navbar"></Navbar>
   <StoreMainPic ref="mainPic"></StoreMainPic>
-  <ProductList :height="height"></ProductList>
+  <ProductList :height="height" ref="productArea"></ProductList>
   <Footer></Footer>
 </template>
 
@@ -38,7 +38,4 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
-  padding: 8px 18px !important;
-}
 </style>
