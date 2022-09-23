@@ -3,7 +3,7 @@
   <footer class="footer bg-black">
     <div class="container py-3">
       <div class="d-flex justify-content-between text-light fs-8">
-        <ul class="d-md-flex p-0 m-0 d-none">
+        <ul class="d-md-flex p-0 m-0 dnone">
           <li class="nav-item me-3">
             <router-link to="/" class="nav-link pt-2">回首頁</router-link>
           </li>
@@ -40,7 +40,7 @@
         <p class="mb-md-2 copyright">
           Copyright © 2022 LINANCE INC. Taipei Taiwan
         </p>
-        <p class="mb-md-2 d-none">本網站僅提供個人作品使用，無商業用途。</p>
+        <p class="mb-md-2 dnone">本網站僅提供個人作品使用，無商業用途。</p>
       </div>
     </div>
   </footer>
