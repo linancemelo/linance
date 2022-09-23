@@ -61,7 +61,7 @@
           v-if="order.is_paid"
           class="btn btn-dark px-3 rounded-pill"
         >
-          &lt; 回首頁
+          回首頁
         </router-link>
         <button
           @click.prevent="payOrder"

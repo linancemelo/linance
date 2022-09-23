@@ -1,0 +1,72 @@
+.card {
+  border-radius: 0;
+  border: 0;
+  padding: 0 5em;
+  margin: 2rem 0;
+
+  img {
+    border-radius: 0;
+  }
+}
+
+.intro {
+  padding: 0 5em;
+  margin: 2rem 0;
+
+  .sidebar {
+    padding: 0;
+
+    ul {
+      padding: 0;
+      color: #000;
+    }
+
+    a {
+      padding: 0;
+      color: #000;
+      text-decoration: none;
+      padding: 0.5rem 0;
+
+      &:hover {
+        color: #be6064;
+        border-bottom: 1px solid #be6064;
+      }
+    }
+
+    .router-link-active {
+      color: #be6064 !important;
+      border-bottom: 1px solid #be6064;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  .card,
+  .intro {
+    padding: 0;
+    margin: 1rem -0.25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .intro {
+    .sidebar {
+      ul {
+        display: flex;
+        justify-content: center;
+
+        li {
+          padding: 0 0.7rem
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .card {
+      padding: 0;
+      margin: 1rem -0.75rem;
+    }
+  }
+}

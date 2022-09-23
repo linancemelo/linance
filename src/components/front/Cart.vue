@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- 主要模塊 -->
     <div class="cart row">
-      <div class="col-lg-7 mb-3">
+      <div class="cart-content col-lg-7 mb-3">
         <h5 class="text-start">購物車內容</h5>
         <ul class="list-group list-group-flush shadow">
           <li
@@ -23,7 +23,7 @@
               <div class="col-12 col-sm-6 align-self-center">
                 <router-link
                     :to="`/product/${item.product_id}`"
-                    class="ps-2 toinfo d-flex text-dark"
+                    class="ps-2 to-info d-flex text-dark"
                   >
                       {{ item.product.title }}
                 </router-link>
@@ -67,7 +67,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-lg-5">
+      <div class="order-summary col-lg-5">
         <h5 class="text-start">訂單摘要</h5>
         <div class="card shadow">
           <ul class="list-group list-group-flush">
@@ -212,4 +212,4 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/front/cart.css"></style>
+<style scoped src="../../assets/css/front/cart.scss" lang="scss"></style>

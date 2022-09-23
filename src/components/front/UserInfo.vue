@@ -118,4 +118,4 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/front/userinfo.css"></style>
+<style scoped src="../../assets/css/front/userinfo.scss" lang="scss"></style>

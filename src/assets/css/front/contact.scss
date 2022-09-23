@@ -1,0 +1,45 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 1180px) {
+  .contact {
+    flex-direction: column;
+
+    ul {
+      padding-left: 0;
+      text-align: center;
+
+    }
+
+    .map {
+      text-align: center;
+      overflow: hidden;
+      padding-top: 60%;
+      /* 16:9*/
+      position: relative;
+
+      iframe {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}

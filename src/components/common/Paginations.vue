@@ -1,6 +1,6 @@
 <template>
   <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
+    <ul class="pagination justify-content-center" v-if="tempPages">
       <li class="page-item">
         <a
           @click.prevent="prev"
@@ -40,16 +40,19 @@
 <script>
 export default {
   props: {
-    pages: {
-      type: Object,
-      default () {
-        return {}
-      }
-    }
+    pages: {}
   },
   data () {
     return {
-      tempPages: this.pages
+      tempPages: {}
+    }
+  },
+  watch: {
+    pages: {
+      handler: function () {
+        this.tempPages = this.pages
+      },
+      immediate: true
     }
   },
   methods: {
@@ -70,4 +73,14 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/pagination.css"></style>
+<style scoped>
+  .page-link {
+    border: 0;
+    color: #000
+  }
+
+  .active>.page-link {
+    background-color: #ca585f;
+    color: #fff
+  }
+</style>

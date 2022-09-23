@@ -47,33 +47,36 @@ export default {
   components: { Navbar, Footer },
   data () {
     return {
-      title: '關於我們',
+      path: '',
+      title: '',
       isLoading: false
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.path = this.$route.path.split('/')[2]
+      this.changeTitle()
     }
   },
   methods: {
     changeTitle () {
       this.isLoading = true
-      const result = this.$route.path.slice(7)
-      if (result === 'aboutus') {
-        this.title = '關於我們'
-      } else if (result === 'team') {
-        this.title = '團隊成員'
-      } else {
-        this.title = '聯絡方式'
+      switch (this.path) {
+        case 'aboutus': this.title = '關於我們'; break
+        case 'team': this.title = '團隊成員'; break
+        case 'contact': this.title = '聯絡我們'; break
       }
       setTimeout(() => {
         this.isLoading = false
-      }, 500)
+      }, 300)
     }
   },
-  watch: {
-    $route (to, from) {
-      this.changeTitle()
-    }
+  created () {
+    this.path = window.location.hash.split('/')[2]
+    this.changeTitle()
   }
 }
 </script>
 
-<style scoped src="../../assets/css/front/about.css">
+<style scoped src="../../assets/css/front/about.scss" lang="scss">
 </style>

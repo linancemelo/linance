@@ -1,8 +1,8 @@
 <template>
   <Navbar></Navbar>
     <!-- 麵包屑模塊 -->
-  <div class="container-fluid">
-    <ul class="step d-flex justify-content-center">
+  <div class="step">
+    <ul class="d-flex justify-content-center">
       <li class="step-item mx-3 fs-8">
         <p class="text-center rounded-circle" :class="{'active-top': path==='cart'}">1</p>
         <span :class="{'active-bottom': path==='cart'}">確認商品</span>
@@ -44,11 +44,11 @@ export default {
     }
   },
   created () {
-    this.path = 'cart'
+    this.path = window.location.hash.split('/')[2]
   }
 }
 </script>
 
-<style scoped src="../../assets/css/front/user.css">
+<style scoped src="../../assets/css/front/user.scss" lang="scss">
 
 </style>

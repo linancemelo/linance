@@ -149,4 +149,10 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/back/coupon.css"></style>
+<style scoped>
+@media screen and (max-width: 768px) {
+  .title {
+    display: none;
+  }
+}
+</style>

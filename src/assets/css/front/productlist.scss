@@ -1,0 +1,57 @@
+ul {
+  border-radius: 0;
+}
+
+// .list-group {
+//   --bs-list-group-action-hover-bg: #be6064;
+//   --bs-list-group-action-hover-color: rgba(255, 255, 255, 0.9);
+// }
+
+.category {
+  border-radius: 0 !important;
+  border-radius: 0.1rem !important;
+  color: #fff;
+  background-color: #bebebe;
+
+  &:hover {
+    background-color: #be6064;
+    color: #fff;
+  }
+}
+
+.category.current {
+  background-color: #be6064 !important;
+  color: #fff !important;
+}
+
+.product {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .bi-suit-heart,
+  .bi-suit-heart-fill {
+    font-size: 1.5rem;
+    color: #be6064;
+
+  }
+
+  img {
+    &:hover {
+      transform: scale(1.05);
+      transition: 1.5s linear;
+    }
+  }
+
+  .btn-sm {
+    --bs-btn-padding-x: 0.2rem;
+    --bs-btn-padding-y: 0rem
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .list-group-horizontal {
+    width: 60% !important;
+    margin: 0 auto;
+  }
+}

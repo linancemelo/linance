@@ -92,4 +92,11 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/back/order.css"></style>
+<style scoped>
+@media screen and (max-width: 768px) {
+  .order-date,
+  .tel {
+    display: none;
+  }
+}
+</style>

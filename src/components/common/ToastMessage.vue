@@ -36,5 +36,8 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/toastMessage.css">
+<style scoped>
+.toast {
+--bs-toast-border-radius: 0
+}
 </style>

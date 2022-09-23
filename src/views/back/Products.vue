@@ -79,7 +79,7 @@ export default {
   },
   inject: ['emitter'],
   methods: {
-    getProduct (page = 3) {
+    getProduct (page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`
       this.isLoading = true
       this.axios.get(api).then((res) => {
@@ -156,4 +156,10 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/back/products.css"></style>
+<style scoped>
+@media screen and (max-width: 768px) {
+  .category {
+    display: none;
+  }
+}
+</style>

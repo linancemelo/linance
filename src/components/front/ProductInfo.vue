@@ -2,7 +2,7 @@
   <Loading :active="isLoading"></Loading>
   <div class="container-fluid mt-3">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 picture">
         <img class="img-fluid" :src="product.imageUrl" alt="" />
       </div>
       <div class="col-lg-6">
@@ -45,7 +45,7 @@
           <span class="number-box mx-2 align-self-center">
             <input
               type="number"
-              :value="num"
+              v-model="num"
               min="1"
               max="10"
               class="border-0 text-center"
@@ -195,4 +195,4 @@ export default {
 }
 </script>
 
-<style scoped src="../../assets/css/front/productinfo.css"></style>
+<style scoped src="../../assets/css/front/productinfo.scss" lang="scss"></style>

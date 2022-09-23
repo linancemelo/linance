@@ -23,6 +23,9 @@ export default {}
 </script>
 
 <style scoped>
+  .card{
+    width: 100vw;
+  }
   .discount{
     width: 100%;
     position: absolute;
@@ -43,7 +46,6 @@ export default {}
     left: -20%;
   }
   }
-
   @media screen and (max-width: 576px){
     .card-text{
       display: none;

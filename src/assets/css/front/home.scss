@@ -1,0 +1,175 @@
+$main: #ca585f;
+
+.home {
+  height: 100vh;
+
+  .navbar {
+    background-color: transparent;
+    --bs-navbar-color: #fff;
+    --bs-btn-hover-color: #fff;
+
+    a {
+      color: #000 !important;
+
+      &:hover {
+        color: $main  !important
+      }
+    }
+
+    .nav-center {
+      font-weight: 500;
+    }
+  }
+
+  .btn {
+    font-size: 1rem !important;
+    padding: 0.3rem, 0.6rem;
+
+    &:hover {
+      --bs-btn-hover-color: #fff;
+    }
+
+    .bi {
+      color: #fff !important
+    }
+  }
+
+  .btn-warning {
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+  }
+
+  .section {
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .carousel__viewport,
+  .carousel__track {
+    height: 100%;
+  }
+
+  .carousel__pagination {
+    position: absolute;
+    bottom: 2.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .carousel__pagination-button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .carousel__pagination-button--active {
+    background-color: #fff !important;
+  }
+
+  .carousel__prev,
+  .carousel__next {
+    background-color: transparent;
+    margin: 0 1rem;
+  }
+
+  .content {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .description {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1190px) {
+  .home {
+    .navbar {
+      .nav-center {
+        .nav-item {
+          &:nth-child(4) {
+            margin-right: 15rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  .home> {
+    .navbar {
+      .nav-center {
+        .nav-item {
+          &:nth-child(4) {
+            margin-right: 5rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991.9px) {
+  .home {
+    .navbar {
+      background-color: #000;
+
+      .container-fluid {
+        padding-right: 0;
+      }
+
+      .nav-center {
+        .nav-item {
+          &:nth-child(4) {
+            margin-right: 0 !important;
+          }
+        }
+      }
+
+      a {
+        color: #fff !important
+      }
+    }
+
+    .navbar-collapse {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    .section {
+      height: 100vh !important;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .content {
+      .description {
+        display: block !important;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .home {
+    .section {
+      height: 50vh !important;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+  }
+}

@@ -3,7 +3,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-        <router-link class="col-3 fs-5" to="/"
+        <router-link class="fs-5" to="/"
         >𝐿𝒾𝓃𝒶𝓃𝒸𝑒</router-link>
 
         <button
@@ -18,10 +18,10 @@
           <i class="bi bi-list"></i>
         </button>
         <div
-          class="collapse navbar-collapse col-6 fs-7 bb"
+          class="collapse navbar-collapse justify-content-end"
           id="navbarSupportedContent"
         >
-          <ul class="nav-center navbar-nav mx-auto mb-2 mb-lg-0">
+          <ul class="nav-center navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="#">Model S</a>
             </li>
@@ -34,7 +34,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Model Y</a>
             </li>
-            <li class="nav-item fs-8 aa">
+            <li class="nav-item fs-8">
               <router-link to="/store" class="nav-link">商店</router-link>
             </li>
             <li class="nav-item fs-8">
@@ -78,7 +78,7 @@
     <!-- CyberTruck -->
     <div class="card text-white border-0 section">
       <img
-        src="https://www.motortrend.com/uploads/sites/5/2019/11/Tesla-Cybertruck-Electric-Pickup-Truck-Front-3-4-in-Motion-on-Road-Course.jpg"
+        src="https://cdn2.ettoday.net/images/5781/5781707.jpg"
         class="card-img rounded-0"
         alt="..."
       />
@@ -127,8 +127,8 @@
         >
       </div>
     </div>
+    <Footer></Footer>
   </div>
-  <Footer></Footer>
 </template>
 
 <script>
@@ -176,4 +176,4 @@ export default {
 }
 </script>
 
-<style src="../../assets/css/front/home.css"></style>
+<style src="../../assets/css/front/home.scss" lang="scss"></style>

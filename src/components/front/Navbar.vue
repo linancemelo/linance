@@ -69,4 +69,4 @@ export default {
 }
 </script>
 
-<style scope src="../../assets/css/front/navbar.css"></style>
+<style scope src="../../assets/css/front/navbar.scss" lang="scss"></style>

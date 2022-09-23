@@ -7,7 +7,8 @@
         :key="index"
         type="button"
         class="category list-group-item list-group-item-action border-0 mx-1 p-1"
-        @click.prevent="getProductList(1, category)"
+        :class="{current: category === '全部'}"
+        @click.prevent="getProductList(1, category, $event)"
         >
         {{ category }}
       </button>
@@ -29,19 +30,18 @@
             @click.prevent="toInfo(item.id)"
         /></a>
         <div class="d-flex justify-content-between">
-          <h5 class="card-title mt-1">{{ item.title }}</h5>
+          <div class="d-flex flex-column">
+            <h5 class="card-title mt-1">{{ item.title }}</h5>
+            <span class="card-link">NTD <span>{{ $filters.currency(item.price) }}</span>
+            </span>
+          </div>
           <div>
             <button class="btn btn-sm border-0" @click.prevent="addToFavorite(item)">
-              <i class="bi bi-suit-heart"></i>
+              <i class="bi bi-suit-heart-fill" v-if="favorId.includes(item.id)"></i>
+              <i class="bi bi-suit-heart" v-else></i>
             </button>
-            <button class="btn btn-sm border-0"
-              ><i class="bi bi-arrow-right"></i
-            ></button>
           </div>
         </div>
-        <span class="card-link"
-          >NTD <span>{{ $filters.currency(item.price) }}</span>
-        </span>
       </div>
     </div>
   </div>
@@ -71,7 +71,9 @@ export default {
         pageSize: 12
       },
       currentPageData: [],
-      favorList: JSON.parse(localStorage.getItem('favorite')) || []
+      // 儲存我的最愛
+      favorList: JSON.parse(localStorage.getItem('favorite')) || [],
+      favorId: JSON.parse(localStorage.getItem('id')) || []
     }
   },
   watch: {
@@ -84,7 +86,10 @@ export default {
     }
   },
   methods: {
-    getProductList (page = 1, category = '全部') {
+    getProductList (page = 1, category = '全部', e) {
+      if (e) {
+        this.changeBtnCss(e)
+      }
       this.isLoading = true
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`
       this.axios.get(api).then((res) => {
@@ -130,21 +135,41 @@ export default {
       if (favoriteIndex === -1) {
         // 如果沒資料就寫入
         this.favorList.push(product)
-        // console.log('已成功加入收藏列表')
+        this.favorId.push(product.id)
+        this.emitter.emit('push-message', {
+          style: 'success',
+          title: '成功加入',
+          content: `${product.title} 已加到我的最愛`
+        })
       } else {
         this.favorList.splice(favoriteIndex, 1)
-        // console.log('商品已從收藏列表移除')
+        this.favorId.splice(favoriteIndex, 1)
+        this.emitter.emit('push-message', {
+          style: 'danger',
+          title: '成功移除',
+          content: `${product.title} 已移除我的最愛`
+        })
       }
       // 儲存收藏列表進去
       localStorage.setItem('favorite', JSON.stringify(this.favorList))
+      localStorage.setItem('id', JSON.stringify(this.favorId))
       // 重新更新收藏列表資料
       this.favorList = JSON.parse(localStorage.getItem('favorite'))
+      this.favorId = JSON.parse(localStorage.getItem('id'))
+    },
+    changeBtnCss (e) {
+      const tabs = document.querySelectorAll('.category')
+      tabs.forEach((i) => {
+        i.classList.remove('current')
+      })
+      e.target.classList.add('current')
     }
   },
+  inject: ['emitter'],
   created () {
     this.getProductList()
   }
 }
 </script>
 
-<style scoped src="../../assets/css/front/productlist.css"></style>
+<style scoped src="../../assets/css/front/productlist.scss" lang="scss"></style>
