@@ -2,7 +2,7 @@
   <Loading :active="isLoading"></Loading>
   <div class="container-fluid">
     <!-- 主要模塊 -->
-    <div class="cart row">
+    <div class="cart row" v-if="cart.length>0">
       <div class="cart-content col-lg-7 mb-3">
         <h5 class="text-start">購物車內容</h5>
         <ul class="list-group list-group-flush shadow">
@@ -125,6 +125,14 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="cart row p-4" v-else>
+      <div class="text-center pt-4">
+        <h2 class="text-center">哎呀！您的購物車是空的！</h2>
+        <button class="btn mt-3" style="background-color: #415ae9">
+          <router-link to="/store" class="text-light">馬上逛逛</router-link>
+        </button>
       </div>
     </div>
   </div>

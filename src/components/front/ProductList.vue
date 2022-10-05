@@ -1,34 +1,35 @@
 <template>
   <Loading :active="isLoading"></Loading>
   <div class="mt-4">
-    <ul class="list-group list-group-horizontal w-100 my-2 px-1 text-center">
+    <ul class="list-group list-group-horizontal w-100 my-2 text-center">
       <button
         v-for="(category, index) in category"
         :key="index"
         type="button"
-        class="category list-group-item list-group-item-action border-0 mx-1 p-1"
+        class="category list-group-item list-group-item-action p-1"
         :class="{current: category === '全部'}"
         @click.prevent="getProductList(1, category, $event)"
         >
         {{ category }}
       </button>
     </ul>
-    <div class="product row px-3">
+    <div class="product row px-2 m-0">
       <div
         class="col-lg-4 col-6 my-4 px-3"
         v-for="item in currentPageData"
         :key="item.id"
       >
-        <a href=""
-          ><img
+        <div class="item-info" @click.prevent="toInfo(item.id)">
+          <div class="cover"></div>
+          <img
             :src="
               item.imageUrl ||
               'https://lh3.googleusercontent.com/j6SkQphnr-A9l3EEClegtdA9ao56OAipb3eTbKA9Sgo_cimXj48lXeT1ZkbxAsXPDFpJpNWDkz5HATOdGlHG4H6MaPI0G1v_INrArw=w1400-k'
             "
-            class="card-img-top img-fluid"
+            class="img-fluid"
             :title="item.title"
-            @click.prevent="toInfo(item.id)"
-        /></a>
+
+        /></div>
         <div class="d-flex justify-content-between">
           <div class="d-flex flex-column">
             <h5 class="card-title mt-1">{{ item.title }}</h5>
@@ -37,6 +38,7 @@
           </div>
           <div>
             <button class="btn btn-sm border-0" @click.prevent="addToFavorite(item)">
+              <!-- <i class="bi bi-suit-heart"></i> -->
               <i class="bi bi-suit-heart-fill" v-if="favorId.includes(item.id)"></i>
               <i class="bi bi-suit-heart" v-else></i>
             </button>
@@ -77,13 +79,13 @@ export default {
     }
   },
   watch: {
-    'pagination.current_page': function () {
-      window.scrollTo({
-        top: this.height,
-        left: 0,
-        behavior: 'smooth'
-      })
-    }
+    // 'pagination.current_page': function () {
+    //   window.scrollTo({
+    //     top: this.height,
+    //     left: 0,
+    //     behavior: 'smooth'
+    //   })
+    // }
   },
   methods: {
     getProductList (page = 1, category = '全部', e) {

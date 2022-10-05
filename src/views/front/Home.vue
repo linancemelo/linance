@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" ref="nav">
       <div class="container-fluid">
         <router-link class="fs-5" to="/"
         >𝐿𝒾𝓃𝒶𝓃𝒸𝑒</router-link>
@@ -14,6 +14,7 @@
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click.prevent="changeBg()"
         >
           <i class="bi bi-list"></i>
         </button>
@@ -23,16 +24,16 @@
         >
           <ul class="nav-center navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Model S</a>
+              <router-link to="/product/-N9Eg4ltDi2cGMOrJGr-" class="nav-link" href="#">Model S</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Model 3</a>
+              <router-link to="/product/-N9ElGaAdLd1q5VERyXV" class="nav-link" href="#">Model 3</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Model X</a>
+              <router-link to="/product/-N9ElysEd3KVeMjDD9hs" class="nav-link" href="#">Model X</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Model Y</a>
+              <router-link to="/product/-N9Em_5rOYC-oKzXc3J2" class="nav-link" href="#">Model Y</router-link>
             </li>
             <li class="nav-item fs-8">
               <router-link to="/store" class="nav-link">商店</router-link>
@@ -60,12 +61,11 @@
         <div class="carousel__item w-100 h-100">
           <img :src="img.src" class="d-block w-100 h-100 img-fluid" alt="..." />
           <div class="content text-light">
-            <h1>{{ img.title }}</h1>
-            <p class="description">{{ img.content }}</p>
+            <h1 data-aos="fade-up" data-aos-duration="2000">{{ img.title }}</h1>
+            <p class="description" data-aos="fade-up" data-aos-duration="2000">{{ img.content }}</p>
             <p>
-              <a href="" class="btn btn-warning btn-md mt3 rounded-pill"
-                >查看更多</a
-              >
+              <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
+                >查看更多</router-link>
             </p>
           </div>
         </div>
@@ -85,8 +85,8 @@
       <div
         class="card-img-overlay text-center d-flex flex-column justify-content-end align-items-center"
       >
-        <h1 class="card-title">Cybertruck</h1>
-        <p class="card-text fs-9">
+        <h1 class="card-title" data-aos="fade-up">Cybertruck</h1>
+        <p class="card-text fs-9" data-aos="fade-up">
           兼具卡車的實用性與跑車的加速性能
         </p>
         <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
@@ -104,8 +104,8 @@
       <div
         class="card-img-overlay text-center d-flex flex-column justify-content-end align-items-center"
       >
-        <h1 class="card-title">能源相關產品</h1>
-        <p class="card-text fs-9">全方位能源供應</p>
+        <h1 class="card-title" data-aos="fade-up">能源相關產品</h1>
+        <p class="card-text fs-9" data-aos="fade-up">全方位能源供應</p>
         <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
           >深入了解</router-link
         >
@@ -121,7 +121,7 @@
       <div
         class="card-img-overlay text-center d-flex flex-column justify-content-end align-items-center"
       >
-        <h1 class="card-title">精選配件</h1>
+        <h1 class="card-title" data-aos="fade-up">精選配件</h1>
         <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
           >深入了解</router-link
         >
@@ -172,8 +172,15 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    changeBg () {
+      console.log(this.$refs)
+      this.$refs.nav.classList.toggle('bg-white')
+    }
   }
 }
 </script>
 
-<style src="../../assets/css/front/home.scss" lang="scss"></style>
+<style src="../../assets/css/front/home.scss" lang="scss">
+</style>

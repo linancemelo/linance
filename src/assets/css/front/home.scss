@@ -26,11 +26,11 @@ $main: #ca585f;
     padding: 0.3rem, 0.6rem;
 
     &:hover {
-      --bs-btn-hover-color: #fff;
+      --bs-btn-hover-color: #000;
     }
 
     .bi {
-      color: #fff !important
+      color: #000 !important
     }
   }
 
@@ -122,8 +122,6 @@ $main: #ca585f;
 @media screen and (max-width: 991.9px) {
   .home {
     .navbar {
-      background-color: #000;
-
       .container-fluid {
         padding-right: 0;
       }
@@ -136,9 +134,9 @@ $main: #ca585f;
         }
       }
 
-      a {
-        color: #fff !important
-      }
+      // a {
+      //   color: #fff !important
+      // }
     }
 
     .navbar-collapse {
@@ -172,4 +170,8 @@ $main: #ca585f;
       scroll-snap-stop: always;
     }
   }
+}
+
+.bg-white{
+  background-color: #fff;
 }

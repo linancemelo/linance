@@ -14,6 +14,9 @@ import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json'
 import EasySlider from 'vue-easy-slider'
 import { createPinia } from 'pinia'
 
+import AOS from 'aos'
+import '../node_modules/aos/dist/aos.css'
+
 defineRule('required', required)
 defineRule('email', email)
 defineRule('min', min)
@@ -35,5 +38,6 @@ app.use(VueAxios, axios)
 app.use(router)
 app.use(EasySlider)
 app.use(pinia)
+app.use(AOS.init())
 app.component('Loading', Loading)
 app.mount('#app')

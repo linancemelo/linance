@@ -23,15 +23,15 @@ export default {
     }
   },
   methods: {
-    getHeight () {
-      const navbarHeight = this.$refs.navbar.$el.clientHeight
-      const mainPicHeight = this.$refs.mainPic.$el.nextElementSibling.clientHeight
-      this.height = navbarHeight + mainPicHeight
-    }
-  },
-  mounted () {
-    this.getHeight()
+    // getHeight () {
+    //   const navbarHeight = this.$refs.navbar.$el.clientHeight
+    //   const mainPicHeight = this.$refs.mainPic.$el.nextElementSibling.clientHeight
+    //   this.height = navbarHeight + mainPicHeight
+    // }
   }
+  // mounted () {
+  //   this.getHeight()
+  // }
 
 }
 </script>

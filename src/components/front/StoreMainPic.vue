@@ -10,26 +10,49 @@
       alt="..."
     />
     <div
-      class="card-img-overlay text-center d-flex flex-column justify-content-end pb-4"
+      class="card-img-overlay text-center d-flex flex-column justify-content-end pb-4" data-aos="fade-down" data-aos-duration="2000"
     >
-      <h1 class="card-title text-warning">客製化您的汽車</h1>
+      <h1 class="card-title text-warning"></h1>
       <p class="card-text fs-8">線上完成購買享有９折優惠</p>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      index: 0
+    }
+  },
+  methods: {
+    write () {
+      const txt = '客製化您的汽車'
+      const txtArea = document.querySelector('.card-title')
+      txtArea.innerText = txt.slice(0, this.index)
+      this.index++
+    }
+  },
+  created () {
+    const start = setInterval(() => {
+      this.write()
+      if (this.index > 7) {
+        clearInterval(start)
+      }
+    }, 500)
+  }
+}
 </script>
 
 <style scoped>
   .card{
-    width: 100vw;
+   max-width: 100vw;
   }
   .discount{
     width: 100%;
     position: absolute;
     background-color: rgba(0,0,0,.5);
+    overflow-x: hidden;
   }
   .content{
     animation: run 12s linear infinite;
@@ -43,7 +66,7 @@ export default {}
   }
   /*動作的結束位置*/
   to {
-    left: -20%;
+    left: 0;
   }
   }
   @media screen and (max-width: 576px){
