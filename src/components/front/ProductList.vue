@@ -1,12 +1,12 @@
 <template>
   <Loading :active="isLoading"></Loading>
-  <div class="mt-4">
-    <ul class="list-group list-group-horizontal w-100 my-2 text-center">
+  <div class="product-list mt-4 d-flex">
+    <ul class="list-group list-group-horizontal pt-4 text-center d-flex flex-column">
       <button
         v-for="(category, index) in category"
         :key="index"
         type="button"
-        class="category list-group-item list-group-item-action p-1"
+        class="category list-group-item list-group-item-action"
         :class="{current: category === '全部'}"
         @click.prevent="getProductList(1, category, $event)"
         >
@@ -77,15 +77,6 @@ export default {
       favorList: JSON.parse(localStorage.getItem('favorite')) || [],
       favorId: JSON.parse(localStorage.getItem('id')) || []
     }
-  },
-  watch: {
-    // 'pagination.current_page': function () {
-    //   window.scrollTo({
-    //     top: this.height,
-    //     left: 0,
-    //     behavior: 'smooth'
-    //   })
-    // }
   },
   methods: {
     getProductList (page = 1, category = '全部', e) {

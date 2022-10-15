@@ -6,6 +6,11 @@ import Coupons from '@/views/back/Coupons'
 import Orders from '@/views/back/Orders'
 
 import Home from '@/views/front/Home'
+import CarInfo from '@/views/front/CarInfo'
+import ModelS from '@/components/front/ModelS'
+import Model3 from '@/components/front/Model3'
+import ModelX from '@/components/front/ModelX'
+import ModelY from '@/components/front/ModelY'
 import About from '@/views/front/About'
 import AboutUs from '@/components/front/AboutUs'
 import Team from '@/components/front/Team'
@@ -31,6 +36,32 @@ const routes = [
     meta: {
       title: 'Linance'
     }
+  },
+  {
+    path: '/carinfo',
+    component: CarInfo,
+    children: [
+      {
+        path: 'models',
+        component: ModelS,
+        name: 'models'
+      },
+      {
+        path: 'model3',
+        component: Model3,
+        name: 'model3'
+      },
+      {
+        path: 'modelx',
+        component: ModelX,
+        name: 'modelx'
+      },
+      {
+        path: 'modely',
+        component: ModelY,
+        name: 'modely'
+      }
+    ]
   },
   {
     path: '/about',

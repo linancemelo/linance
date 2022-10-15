@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <h3 class="fs-4 mb-3">注意事項</h3>
     <div>
       <h5 class="fs-6"><i class="bi bi-car-front-fill"></i> 運費計算</h5>

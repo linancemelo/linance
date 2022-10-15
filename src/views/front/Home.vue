@@ -24,16 +24,16 @@
         >
           <ul class="nav-center navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link to="/product/-N9Eg4ltDi2cGMOrJGr-" class="nav-link" href="#">Model S</router-link>
+              <router-link :to="{name: 'models'}" class="nav-link" href="#">Model S</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/product/-N9ElGaAdLd1q5VERyXV" class="nav-link" href="#">Model 3</router-link>
+              <router-link :to="{name: 'model3'}" class="nav-link" href="#">Model 3</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/product/-N9ElysEd3KVeMjDD9hs" class="nav-link" href="#">Model X</router-link>
+              <router-link :to="{name: 'modelx'}" class="nav-link" href="#">Model X</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/product/-N9Em_5rOYC-oKzXc3J2" class="nav-link" href="#">Model Y</router-link>
+              <router-link :to="{name: 'modely'}" class="nav-link" href="#">Model Y</router-link>
             </li>
             <li class="nav-item fs-8">
               <router-link to="/store" class="nav-link">商店</router-link>
@@ -64,7 +64,7 @@
             <h1 data-aos="fade-up" data-aos-duration="2000">{{ img.title }}</h1>
             <p class="description" data-aos="fade-up" data-aos-duration="2000">{{ img.content }}</p>
             <p>
-              <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
+              <router-link to="/store" class="btn btn-warning btn-md mt3 "
                 >查看更多</router-link>
             </p>
           </div>
@@ -89,7 +89,7 @@
         <p class="card-text fs-9" data-aos="fade-up">
           兼具卡車的實用性與跑車的加速性能
         </p>
-        <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
+        <router-link to="/store" class="btn btn-warning btn-md mt3 "
           >深入了解</router-link
         >
       </div>
@@ -106,7 +106,7 @@
       >
         <h1 class="card-title" data-aos="fade-up">能源相關產品</h1>
         <p class="card-text fs-9" data-aos="fade-up">全方位能源供應</p>
-        <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
+        <router-link to="/store" class="btn btn-warning btn-md mt3 "
           >深入了解</router-link
         >
       </div>
@@ -122,7 +122,8 @@
         class="card-img-overlay text-center d-flex flex-column justify-content-end align-items-center"
       >
         <h1 class="card-title" data-aos="fade-up">精選配件</h1>
-        <router-link to="/store" class="btn btn-warning btn-md mt3 rounded-pill"
+        <p class="card-text fs-9" data-aos="fade-up">客製化專屬車輛</p>
+        <router-link to="/store" class="btn btn-warning btn-md mt3 "
           >深入了解</router-link
         >
       </div>

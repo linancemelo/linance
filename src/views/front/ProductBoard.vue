@@ -1,9 +1,11 @@
 <template>
   <!-- navBar -->
   <Navbar></Navbar>
-  <ProductInfo></ProductInfo>
-  <Caution></Caution>
-  <OtherProduct></OtherProduct>
+  <div class="product-board">
+    <ProductInfo></ProductInfo>
+    <Caution></Caution>
+    <OtherProduct></OtherProduct>
+  </div>
   <Footer></Footer>
 </template>
 
@@ -32,7 +34,12 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
-  padding: 8px 18px !important;
+.product-board{
+  padding: 0 2.5rem;
+}
+@media screen and (max-width: 992px) {
+  .product-board{
+    padding: 0 1rem !important;
+  }
 }
 </style>

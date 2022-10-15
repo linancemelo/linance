@@ -24,14 +24,14 @@
       id="navbarSupportedContent"
     >
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item align-self-center">
           <router-link to="/" class="nav-link">
             首頁
           </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item align-self-center">
           <router-link to="/store" class="nav-link">
-            所有產品
+            商店
           </router-link>
         </li>
         <li class="nav-item" @click.prevent="showFavorite">

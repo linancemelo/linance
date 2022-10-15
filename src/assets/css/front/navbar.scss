@@ -1,5 +1,5 @@
 .navbar {
-  padding: 8px 18px !important;
+  padding: 8px 2.5rem !important;
 
   .nav-item {
     &:nth-child(4) {
@@ -110,6 +110,7 @@
   }
 
   .navbar {
+    padding: 8px 1rem !important;
     .nav-item {
       .nav-link {
         text-align: center;

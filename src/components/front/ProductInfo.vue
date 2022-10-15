@@ -1,6 +1,6 @@
 <template>
   <Loading :active="isLoading"></Loading>
-  <div class="container-fluid mt-3">
+  <div class="container-fluid mt-3 p-0">
     <div class="row">
       <div class="col-lg-6 picture">
         <img class="img-fluid" :src="product.imageUrl" alt="" />
@@ -109,7 +109,7 @@
           </div>
         </div>
         <!---->
-        <div class="mt-3 col-md-10 col-lg-9">
+        <div class="description mt-3 col-md-10 col-lg-9">
           <h5 class="fs-6">產品描述</h5>
           <p>
             {{ product.description }}

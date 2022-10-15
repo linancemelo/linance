@@ -1,7 +1,7 @@
 <template>
   <Loading :active="isLoading"></Loading>
-  <div class="other container-fluid mb-5">
-    <h2 class="px-2">您可能還會喜歡...</h2>
+  <div class="other container-fluid mb-5 px-0">
+    <h2>您可能還會喜歡...</h2>
     <ul class="d-flex justify-content-around p-0 mt-4">
       <li v-for="item in otherList" :key="item.id" class="px-2">
         <div @click.prevent="toInfo(item.id)">
