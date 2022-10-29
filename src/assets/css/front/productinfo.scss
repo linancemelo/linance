@@ -3,7 +3,25 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+a:hover{
+  color: #ca585f;
+}
 .picture{
+  position: relative;
+  .like{
+    position: absolute;
+    top: .5rem;
+    right: 0;
+    transform: translateX(-80%);
+    z-index: 100;
+    .bi-bookmarks {
+      font-size: 1.5rem;
+    }
+    .bi-bookmarks-fill {
+      font-size: 1.5rem;
+      color: #be6064;
+    }
+  }
   img{
     width: 100%;
   }
@@ -13,18 +31,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .price {
-  color: #be6064
-}
-
-.add-btn {
-  background-color: #be6064;
-  color: #fff;
+  color: #f11d00;
+  font-weight: 800;
 }
 
 .toCart-btn {
-  padding-top: 0.4rem;
-  background-color: #333;
-  color: #fff
+  background: #333;
 }
 
 .bi-plus::before,
@@ -37,7 +49,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 2rem !important;
   padding: 0 !important;
   font-size: 1.5rem;
-  box-shadow: 1px 1px;
+  box-shadow: 0 0 5px;
   align-self: center;
 }
 

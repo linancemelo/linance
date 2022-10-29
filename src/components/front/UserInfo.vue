@@ -74,8 +74,8 @@
         ></textarea>
       </div>
       <div class="d-flex justify-content-between">
-        <button @click.prevent="backToCart" class="btn rounded-pill px-3 mt-3">&lt; 回購物車</button>
-        <button class="btn rounded-pill px-3 mt-3">送出訂單 &gt;</button>
+        <button @click.prevent="backToCart" class="btn px-3 mt-3">&lt; 回購物車</button>
+        <button class="btn px-3 mt-3">送出訂單 &gt;</button>
       </div>
     </Form>
   </div>

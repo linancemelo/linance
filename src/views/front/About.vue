@@ -13,19 +13,19 @@
     <div class="intro row">
       <div class="sidebar col-md-2">
         <ul>
-          <li class="mb-4">
+          <li class="mb-4 text-center">
             <router-link
               to="/about/aboutus"
               class="btn-link"
               >關於我們</router-link>
           </li>
-          <li class="mb-4">
+          <li class="mb-4 text-center">
             <router-link
               to="/about/team"
               class="btn-link"
               >團隊成員</router-link>
           </li>
-          <li class="mb-4">
+          <li class="mb-4 text-center">
             <router-link
               to="/about/contact"
               class="btn-link"

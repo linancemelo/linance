@@ -108,16 +108,16 @@
               <span>$60</span>
             </li>
             <hr>
-            <li class="d-flex justify-content-between mb-2">
+            <li class="d-flex justify-content-between mb-2 fw-bold fs-5">
               <span>總金額</span
               ><span>
-                $<span>{{ $filters.currency(final_total_price+60) }}</span>
+                ${{ $filters.currency(final_total_price+60) }}
               </span>
             </li>
             <li class="d-flex justify-content-center mt-3">
               <button
                 @click.prevent="openUserInfo"
-                class="btn px-5 rounded-pill text-white"
+                class="btn px-5 text-light w-100"
                 style="background-color: #415ae9"
               >
                 填寫用戶資料
@@ -127,7 +127,7 @@
         </div>
       </div>
     </div>
-    <div class="cart row p-4" v-else>
+    <div class="cart row p-4" v-if="cart.length===0">
       <div class="text-center pt-4">
         <h2 class="text-center">哎呀！您的購物車是空的！</h2>
         <button class="btn mt-3" style="background-color: #415ae9">

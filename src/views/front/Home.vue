@@ -23,25 +23,27 @@
           id="navbarSupportedContent"
         >
           <ul class="nav-center navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <router-link :to="{name: 'models'}" class="nav-link" href="#">Model S</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link :to="{name: 'model3'}" class="nav-link" href="#">Model 3</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link :to="{name: 'modelx'}" class="nav-link" href="#">Model X</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link :to="{name: 'modely'}" class="nav-link" href="#">Model Y</router-link>
-            </li>
-            <li class="nav-item fs-8">
+            <div class="nav-item car-link">
+              <li class="nav-item">
+                <router-link :to="{name: 'models'}" class="nav-link" href="#">Model S</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{name: 'model3'}" class="nav-link" href="#">Model 3</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{name: 'modelx'}" class="nav-link" href="#">Model X</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{name: 'modely'}" class="nav-link" href="#">Model Y</router-link>
+              </li>
+            </div>
+            <li class="nav-item fs-7">
               <router-link to="/store" class="nav-link">商店</router-link>
             </li>
-            <li class="nav-item fs-8">
+            <li class="nav-item fs-7">
               <router-link to="/login" class="nav-link">帳戶</router-link>
             </li>
-            <li class="nav-item fs-8">
+            <li class="nav-item fs-7">
               <router-link to="/about" class="nav-link">關於我們</router-link>
             </li>
           </ul>
@@ -133,16 +135,10 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import Footer from '@/components/front/Footer.vue'
 
 export default {
   components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
     Footer
   },
   data () {
@@ -176,7 +172,6 @@ export default {
   },
   methods: {
     changeBg () {
-      console.log(this.$refs)
       this.$refs.nav.classList.toggle('bg-white')
     }
   }

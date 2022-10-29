@@ -1,14 +1,15 @@
 <template>
-  <div class="container">
+  <Navbar></Navbar>
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-6 py-2 text-center">
+      <div class="col-lg-6 text-center">
         <img
           src="https://i.pinimg.com/736x/ac/bc/7d/acbc7d7a6d49d6b8fc745491a2150da6.jpg"
           alt=""
           class="img-fluid h-100"
         />
       </div>
-      <div class="col-lg-6 py-2 d-flex flex-column justify-content-center">
+      <div class="col-lg-6 py-3 d-flex flex-column justify-content-center">
         <h3 class="mb-4 text-center">登入後台</h3>
         <form @submit.prevent="signIn" class="mx-auto">
           <div class="mb-3">
@@ -51,7 +52,11 @@
 </template>
 
 <script>
+import Navbar from '@/components/front/Navbar.vue'
 export default {
+  components: {
+    Navbar
+  },
   data () {
     return {
       user: {

@@ -33,7 +33,7 @@ export default {
       this.index++
     }
   },
-  created () {
+  mounted () {
     const start = setInterval(() => {
       this.write()
       if (this.index > 7) {
@@ -45,9 +45,6 @@ export default {
 </script>
 
 <style scoped>
-  .card{
-   max-width: 100vw;
-  }
   .discount{
     width: 100%;
     position: absolute;
@@ -66,7 +63,7 @@ export default {
   }
   /*動作的結束位置*/
   to {
-    left: 0;
+    left: -20%;
   }
   }
   @media screen and (max-width: 576px){

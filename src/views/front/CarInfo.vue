@@ -2,17 +2,18 @@
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg fixed-top" ref="nav">
     <div class="container-fluid">
-      <router-link class="fs-5" to="/">𝐿𝒾𝓃𝒶𝓃𝒸𝑒</router-link>
+      <router-link class="fs-5" to="/"
+      >𝐿𝒾𝓃𝒶𝓃𝒸𝑒</router-link>
 
       <button
-        class="btn navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        @click.prevent="changeBg()"
+      class="btn navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      @click.prevent="changeBg()"
       >
         <i class="bi bi-list"></i>
       </button>
@@ -21,45 +22,27 @@
         id="navbarSupportedContent"
       >
         <ul class="nav-center navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link
-            :to="{name: 'models'}"
-              class="nav-link"
-              href="#"
-              >Model S</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link
-              :to="{name: 'model3'}"
-              class="nav-link"
-              href="#"
-              >Model 3</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link
-              :to="{name: 'modelx'}"
-              class="nav-link"
-              href="#"
-              >Model X</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link
-              :to="{name: 'modely'}"
-              class="nav-link"
-              href="#"
-              >Model Y</router-link
-            >
-          </li>
-          <li class="nav-item fs-8">
+          <div class="nav-item car-link">
+            <li class="nav-item">
+              <router-link :to="{name: 'models'}" class="nav-link" href="#">Model S</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{name: 'model3'}" class="nav-link" href="#">Model 3</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{name: 'modelx'}" class="nav-link" href="#">Model X</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{name: 'modely'}" class="nav-link" href="#">Model Y</router-link>
+            </li>
+          </div>
+          <li class="nav-item fs-7">
             <router-link to="/store" class="nav-link">商店</router-link>
           </li>
-          <li class="nav-item fs-8">
+          <li class="nav-item fs-7">
             <router-link to="/login" class="nav-link">帳戶</router-link>
           </li>
-          <li class="nav-item fs-8">
+          <li class="nav-item fs-7">
             <router-link to="/about" class="nav-link">關於我們</router-link>
           </li>
         </ul>
@@ -138,39 +121,32 @@ $main: #ca585f;
   opacity: 0;
 }
 .navbar {
-  background-color: transparent;
-  --bs-navbar-color: #fff;
-  --bs-btn-hover-color: #fff;
+    background-color: transparent;
+    --bs-navbar-color: #fff;
+    --bs-btn-hover-color: #fff;
 
-  a {
-    color: #000 !important;
-
-    &:hover {
-      color: $main !important;
-    }
-  }
-
-  .nav-center {
-    font-weight: 500;
-  }
-}
-@media screen and (min-width: 1190px) {
-  .navbar {
-    .nav-center {
-      .nav-item {
-        &:nth-child(4) {
-          margin-right: 13rem !important;
+    .container-fluid{
+      position: relative;
+      a {
+        color: #000 !important;
+        &:hover {
+          color: $main  !important
         }
       }
     }
   }
-}
-@media screen and (max-width: 1190px) {
-  .navbar {
-    .nav-center {
-      .nav-item {
-        &:nth-child(4) {
-          margin-right: 5rem !important;
+@media screen and (min-width: 991.9px) {
+  .navbar{
+    .container-fluid{
+      .navbar-collapse{
+        .nav-center{
+          .car-link{
+            display: flex;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+          }
         }
       }
     }
@@ -180,19 +156,11 @@ $main: #ca585f;
   .navbar {
     .container-fluid {
       padding-right: 0;
-    }
-
-    .nav-center {
-      .nav-item {
-        &:nth-child(4) {
-          margin-right: 0 !important;
-        }
+      .navbar-collapse {
+        text-align: center;
       }
     }
   }
 
-  .navbar-collapse {
-    text-align: center;
-  }
 }
 </style>

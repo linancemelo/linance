@@ -25,12 +25,12 @@
     >
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item align-self-center">
-          <router-link to="/" class="nav-link">
+          <router-link to="/" class="nav-link fs-7">
             首頁
           </router-link>
         </li>
         <li class="nav-item align-self-center">
-          <router-link to="/store" class="nav-link">
+          <router-link to="/store" class="nav-link fs-7">
             商店
           </router-link>
         </li>
@@ -48,10 +48,10 @@
       </ul>
     </div>
   </nav>
-  <div>
-    <div class="favorite" ref="favorite">
+  <div class="favorite" ref="favorite">
+    <div class="favorite-container">
       <div class="top d-flex justify-content-between text-light px-2">
-        <h2 class="m-0">我的最愛</h2>
+        <h3 class="m-0">My Favorite</h3>
         <span class="align-self-center" @click.prevent="closeFavorite"><i class="bi bi-x-lg" style="cursor: pointer"></i></span>
       </div>
       <div class="favorite-list text-light">
@@ -59,13 +59,13 @@
           <li v-for="item in favorList" :key="item.id"
           class="favorite-item d-flex justify-content-between">
             <div class="image">
-              <img :src="item.imageUrl" class="img-fluid" alt="">
+              <img :src="item.imageUrl" class="img-fluid" :title="item.title">
             </div>
-            <div class="descript d-flex flex-column justify-content-center">
+            <div class="description d-flex flex-column justify-content-center">
               <div class="title mb-1 fs-4">{{item.title}}</div>
               <div class="price mt-1">NTD$ {{ $filters.currency(item.price) }}</div>
             </div>
-            <div class="d-flex flex-column justify-content-center">
+            <div class="control d-flex flex-column justify-content-center">
               <div class="more mb-1" @click.prevent="toInfo(item.id)">詳細</div>
               <div class="del mt-1" @click.prevent="delFavorite(item)">移除</div>
             </div>
@@ -97,12 +97,13 @@ export default {
       })
     },
     showFavorite () {
-      this.$refs.favorite.style.right = '0'
+      this.$refs.favorite.style.left = '0'
     },
     closeFavorite () {
-      this.$refs.favorite.style.right = '-70%'
+      this.$refs.favorite.style.left = '100%'
     },
     toInfo (id) {
+      this.closeFavorite()
       this.$router.push(`/product/${id}`)
     },
     delFavorite (product) {

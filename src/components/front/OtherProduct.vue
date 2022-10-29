@@ -1,9 +1,9 @@
 <template>
   <Loading :active="isLoading"></Loading>
-  <div class="other container-fluid mb-5 px-0">
+  <div class="other container-fluid mb-5 px-0" data-aos="fade-left">
     <h2>您可能還會喜歡...</h2>
-    <ul class="d-flex justify-content-around p-0 mt-4">
-      <li v-for="item in otherList" :key="item.id" class="px-2">
+    <ul class="d-flex justify-content-between p-0 mt-4">
+      <li v-for="item in otherList" :key="item.id">
         <div @click.prevent="toInfo(item.id)">
           <div class="img-container">
             <div class="cover">
@@ -25,19 +25,6 @@ export default {
       otherList: [],
       isLoading: false
     }
-  },
-  computed: {
-    // getRandomList () {
-    //   const tempList = [...this.products] // 複製一份總列表
-    //   const randomList = [] // 創建一個要接收的列表
-    //   for (let i = 0; i < 3; i++) { // 循環三次
-    //     const length = tempList.length // 總列表的長度
-    //     // const index = Math.floor(Math.random() * length)
-    //     // const goods = tempList.splice(index, 1)
-    //     // randomList.push(goods)
-    //   }
-    //   return randomList
-    // }
   },
   methods: {
     getProductList () {
@@ -63,7 +50,7 @@ export default {
       this.$router.push(`/product/${id}`)
       setTimeout(() => {
         window.location.reload()
-      }, 200)
+      }, 500)
     }
   },
   created () {

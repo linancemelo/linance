@@ -84,7 +84,8 @@ const routes = [
   },
   {
     path: '/store',
-    component: Store
+    component: Store,
+    name: 'store'
   },
   {
     path: '/product',

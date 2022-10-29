@@ -59,13 +59,13 @@
         <router-link
           to="/"
           v-if="order.is_paid"
-          class="btn btn-dark px-3 rounded-pill"
+          class="btn btn-dark px-3"
         >
           回首頁
         </router-link>
         <button
           @click.prevent="payOrder"
-          class="btn btn-danger px-3 ms-1 rounded-pill"
+          class="btn btn-danger px-3 ms-1"
           v-if="order.is_paid === false"
         >
           確認付款
