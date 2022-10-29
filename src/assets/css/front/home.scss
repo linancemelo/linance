@@ -21,7 +21,7 @@ $main: #ca585f;
 
   .btn {
     font-size: 1rem !important;
-    padding: 0.3rem, 0.6rem;
+    padding: .3rem, .6rem;
 
     &:hover {
       --bs-btn-hover-color: #000;
@@ -35,7 +35,7 @@ $main: #ca585f;
   .btn-warning {
     &:hover {
       transform: scale(1.1);
-      transition: all 0.5s;
+      transition: all .5s;
     }
   }
 
@@ -64,7 +64,7 @@ $main: #ca585f;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, .3);
   }
 
   .carousel__pagination-button--active {
@@ -115,11 +115,6 @@ $main: #ca585f;
 
         .navbar-collapse {
           text-align: center;
-          .nav-center{
-            .car-link{
-              // position: static;
-            }
-          }
         }
       }
     }
