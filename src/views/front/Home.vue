@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <!-- navbar -->
+    <!-- test -->
     <nav class="navbar navbar-expand-lg fixed-top" ref="nav">
       <div class="container-fluid">
         <router-link class="fs-5" to="/"
